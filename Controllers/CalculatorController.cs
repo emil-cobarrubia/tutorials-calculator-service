@@ -39,5 +39,13 @@ namespace Calculator.Controllers
             var response = this.calcService.Multiply(numbers);
             return Ok(response);
         }
+
+        [HttpGet]
+        [Route("Power")]
+        public Object Power(double? baseNumber, double exponent)
+        {
+            var response = this.calcService.Power(baseNumber, exponent);
+            return Ok(response);
+        }
     }
 }
