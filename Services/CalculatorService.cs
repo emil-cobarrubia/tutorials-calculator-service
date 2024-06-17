@@ -46,6 +46,17 @@ namespace Calculator.Services
 
             return response;
         }
+
+        public Object Power(double? baseNumber, double? exponent)
+        {
+            
+            var response = new { inputBase = baseNumber,
+                exponent = exponent,
+                result = Math.Pow((double)baseNumber, (double)exponent)
+            };
+
+            return response;
+        }
     }
 
      public interface ICalculatorService
@@ -54,6 +65,8 @@ namespace Calculator.Services
         Object Subtract(double[]? numbers);
 
         Object Multiply(double[]? numbers);
+
+        Object Power(double? baseNumber, double? exponent);
 
     }
 
