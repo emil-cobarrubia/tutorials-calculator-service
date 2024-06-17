@@ -47,5 +47,15 @@ namespace Calculator.Controllers
             var response = this.calcService.Power(baseNumber, exponent);
             return Ok(response);
         }
+
+        [HttpGet]
+        [Route("GetAge")]
+        public Object GetAge(int? birthYear, int? birthMonth, int? birthDay,
+            int? onYear, int? onMonth, int? onDay)
+        {
+            var response = this.calcService.GetAge(birthYear, birthMonth, birthDay, 
+                onYear, onMonth, onDay);
+            return Ok(response);
+        }
     }
 }

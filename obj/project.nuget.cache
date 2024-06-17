@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "w753FbwoMGE=",
+  "dgSpecHash": "fvKAiez97AM=",
   "success": true,
-  "projectFilePath": "/Users/emilcobarrubia/Documents/MyApplications/Repos/api-calculator-tutorial/Calculator.csproj",
+  "projectFilePath": "/Users/emilcobarrubia/Documents/MyApplications/Repos/api-calculator-tutorial-ado/Calculator.csproj",
   "expectedPackageFiles": [
     "/Users/emilcobarrubia/.nuget/packages/azure.core/1.35.0/azure.core.1.35.0.nupkg.sha512",
     "/Users/emilcobarrubia/.nuget/packages/azure.identity/1.10.3/azure.identity.1.10.3.nupkg.sha512",

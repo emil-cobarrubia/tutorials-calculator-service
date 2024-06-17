@@ -8261,11 +8261,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/emilcobarrubia/Documents/MyApplications/Repos/api-calculator-tutorial/Calculator.csproj",
+      "projectUniqueName": "/Users/emilcobarrubia/Documents/MyApplications/Repos/api-calculator-tutorial-ado/Calculator.csproj",
       "projectName": "Calculator",
-      "projectPath": "/Users/emilcobarrubia/Documents/MyApplications/Repos/api-calculator-tutorial/Calculator.csproj",
+      "projectPath": "/Users/emilcobarrubia/Documents/MyApplications/Repos/api-calculator-tutorial-ado/Calculator.csproj",
       "packagesPath": "/Users/emilcobarrubia/.nuget/packages/",
-      "outputPath": "/Users/emilcobarrubia/Documents/MyApplications/Repos/api-calculator-tutorial/obj/",
+      "outputPath": "/Users/emilcobarrubia/Documents/MyApplications/Repos/api-calculator-tutorial-ado/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/emilcobarrubia/.nuget/NuGet/NuGet.Config"
