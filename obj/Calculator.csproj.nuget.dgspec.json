@@ -1,26 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "/Volumes/workspace/Applications/Tutorials/GitHub repos/Calculator/Calculator.csproj": {}
+    "\\\\Chewys_NAS\\workspace\\Applications\\Tutorials\\GitHub repos\\Calculator\\Calculator.csproj": {}
   },
   "projects": {
-    "/Volumes/workspace/Applications/Tutorials/GitHub repos/Calculator/Calculator.csproj": {
+    "\\\\Chewys_NAS\\workspace\\Applications\\Tutorials\\GitHub repos\\Calculator\\Calculator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Volumes/workspace/Applications/Tutorials/GitHub repos/Calculator/Calculator.csproj",
+        "projectUniqueName": "\\\\Chewys_NAS\\workspace\\Applications\\Tutorials\\GitHub repos\\Calculator\\Calculator.csproj",
         "projectName": "Calculator",
-        "projectPath": "/Volumes/workspace/Applications/Tutorials/GitHub repos/Calculator/Calculator.csproj",
-        "packagesPath": "/Users/emilcobarrubia/.nuget/packages/",
-        "outputPath": "/Volumes/workspace/Applications/Tutorials/GitHub repos/Calculator/obj/",
+        "projectPath": "\\\\Chewys_NAS\\workspace\\Applications\\Tutorials\\GitHub repos\\Calculator\\Calculator.csproj",
+        "packagesPath": "C:\\Users\\emilc\\.nuget\\packages\\",
+        "outputPath": "\\\\Chewys_NAS\\workspace\\Applications\\Tutorials\\GitHub repos\\Calculator\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/emilcobarrubia/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\emilc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -88,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
