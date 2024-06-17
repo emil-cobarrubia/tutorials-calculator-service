@@ -31,5 +31,13 @@ namespace Calculator.Controllers
             var response = this.calcService.Subtract(numbers);
             return Ok(response);
         }
+
+        [HttpGet]
+        [Route("Multiply")]
+        public Object Multiply([FromQuery] double[]? numbers)
+        {
+            var response = this.calcService.Multiply(numbers);
+            return Ok(response);
+        }
     }
 }
