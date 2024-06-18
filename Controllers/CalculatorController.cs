@@ -65,5 +65,13 @@ namespace Calculator.Controllers
             var response = this.calcService.FahrenheitToCelsius(fahrenheit);
             return Ok(response);
         }
+
+        [HttpGet]
+        [Route("CelsiusToFahrenheit")]
+        public Object CelsiusToFahrenheit(double? celsius)
+        {
+            var response = this.calcService.CelsiusToFahrenheit(celsius);
+            return Ok(response);
+        }
     }
 }

@@ -111,6 +111,17 @@ namespace Calculator.Services
 
             return response;
         }
+
+        public Object CelsiusToFahrenheit(double? celsius)
+        {
+            var response = new
+            {
+                inputCelsius = celsius,
+                fahrenheit = Math.Round((double)((celsius * ((double)9 / (double)5)) + 32), 1)
+            };
+
+            return response;
+        }
     }
 
      public interface ICalculatorService
@@ -126,6 +137,8 @@ namespace Calculator.Services
             int? onYear, int? onMonth, int? onDay);
 
         Object FahrenheitToCelsius(double? fahrenheit);
+
+        Object CelsiusToFahrenheit(double? celsius);
 
     }
 
