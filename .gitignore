@@ -1,7 +1,7 @@
 ﻿################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
-
+/.vs/*
 /.vs/api-calculator-tutorial-ado/FileContentIndex/0b0bd958-f4fc-4121-be06-26bdc31668d3.vsidx
 /.vs/api-calculator-tutorial-ado/FileContentIndex/0da4f00d-6756-4469-a8a1-0812b7489bc6.vsidx
 /.vs/api-calculator-tutorial-ado/FileContentIndex/6ebb80f8-ce9d-474d-851b-5d1c7dffa1e2.vsidx

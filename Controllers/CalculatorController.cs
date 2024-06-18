@@ -53,8 +53,16 @@ namespace Calculator.Controllers
         public Object GetAge(int? birthYear, int? birthMonth, int? birthDay,
             int? onYear, int? onMonth, int? onDay)
         {
-            var response = this.calcService.GetAge(birthYear, birthMonth, birthDay, 
+            var response = this.calcService.GetAge(birthYear, birthMonth, birthDay,
                 onYear, onMonth, onDay);
+            return Ok(response);
+        }
+
+        [HttpGet]
+        [Route("FahrenheitToCelsius")]
+        public Object FahrenheitToCelsius(double? fahrenheit)
+        {
+            var response = this.calcService.FahrenheitToCelsius(fahrenheit);
             return Ok(response);
         }
     }

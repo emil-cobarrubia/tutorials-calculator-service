@@ -100,6 +100,17 @@ namespace Calculator.Services
 
             return response;
         }
+
+        public Object FahrenheitToCelsius(double? fahrenheit)
+        {
+            var response = new
+            {
+                inputFahrenheit = fahrenheit,
+                celsius = Math.Round((double)((fahrenheit - 32) * ((double)5 / (double)9)), 1)
+            };
+
+            return response;
+        }
     }
 
      public interface ICalculatorService
@@ -113,6 +124,8 @@ namespace Calculator.Services
 
         Object GetAge(int? birthYear, int? birthMonth, int? birthDay,
             int? onYear, int? onMonth, int? onDay);
+
+        Object FahrenheitToCelsius(double? fahrenheit);
 
     }
 
