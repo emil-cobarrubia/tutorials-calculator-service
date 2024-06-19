@@ -8261,11 +8261,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "\\\\Chewys_NAS\\workspace\\Applications\\Tutorials\\Azure DevOps repos\\api-calculator-tutorial-ado\\Calculator.csproj",
+      "projectUniqueName": "\\\\Chewys_NAS\\workspace\\Applications\\Tutorials\\Azure DevOps repos\\api-calculator\\Calculator.csproj",
       "projectName": "Calculator",
-      "projectPath": "\\\\Chewys_NAS\\workspace\\Applications\\Tutorials\\Azure DevOps repos\\api-calculator-tutorial-ado\\Calculator.csproj",
+      "projectPath": "\\\\Chewys_NAS\\workspace\\Applications\\Tutorials\\Azure DevOps repos\\api-calculator\\Calculator.csproj",
       "packagesPath": "C:\\Users\\emilc\\.nuget\\packages\\",
-      "outputPath": "\\\\Chewys_NAS\\workspace\\Applications\\Tutorials\\Azure DevOps repos\\api-calculator-tutorial-ado\\obj\\",
+      "outputPath": "\\\\Chewys_NAS\\workspace\\Applications\\Tutorials\\Azure DevOps repos\\api-calculator\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\emilc\\AppData\\Roaming\\NuGet\\NuGet.Config",

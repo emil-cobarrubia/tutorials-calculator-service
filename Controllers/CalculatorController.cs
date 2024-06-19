@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Calculator.Services;
+using Weight.Services;
+using Calculator.Enums;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -7,15 +9,29 @@ namespace Calculator.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+
+    /// <summary>
+    /// This controller can be used to calculate basic arithmetic operations.
+    /// </summary>
     public class CalculatorController : ControllerBase
     {
         private ICalculatorService calcService;
+        private IWeightService weightService;
 
         public CalculatorController()
         {
             this.calcService = new CalculatorService();
+            this.weightService = new WeightService();
         }
 
+        /// <summary>
+        /// The Add() method accepts an array of numbers.  All numbers within the array
+        /// will be added together.
+        /// </summary>
+        /// <param name="numbers">The array of numbers to add.</param>
+        /// <returns>The sum of all numbers.</returns>
+        /// <response code="200">Returns the converted weight.</response>
+        /// <response code="400">If the parameters are incorrect.</response>
         [HttpGet]
         [Route("Add")]
         public Object Add([FromQuery] double[]? numbers)
@@ -71,6 +87,14 @@ namespace Calculator.Controllers
         public Object CelsiusToFahrenheit(double? celsius)
         {
             var response = this.calcService.CelsiusToFahrenheit(celsius);
+            return Ok(response);
+        }
+
+        [HttpGet]
+        [Route("GetWeightOnMoon")]
+        public Object GetWeightOnMoon(double weight, WeightUnit weightUnit)
+        {
+            var response = this.weightService.GetWeightOnMoon(weight, weightUnit);
             return Ok(response);
         }
     }
