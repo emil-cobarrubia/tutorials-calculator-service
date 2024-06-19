@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "k0IjN9ba9xM=",
+  "dgSpecHash": "/42n4jE/zho=",
   "success": true,
-  "projectFilePath": "\\\\Chewys_NAS\\workspace\\Applications\\Tutorials\\Azure DevOps repos\\api-calculator-tutorial-ado\\Calculator.csproj",
+  "projectFilePath": "\\\\Chewys_NAS\\workspace\\Applications\\Tutorials\\Azure DevOps repos\\api-calculator\\Calculator.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\emilc\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\emilc\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

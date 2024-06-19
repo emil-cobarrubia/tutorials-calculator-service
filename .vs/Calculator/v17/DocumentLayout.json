@@ -1,9 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "\\\\Chewys_NAS\\workspace\\Applications\\Tutorials\\GitHub repos\\Calculator\\",
+  "WorkspaceRootPath": "\\\\Chewys_NAS\\workspace\\Applications\\Tutorials\\Azure DevOps repos\\api-calculator\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2083ED24-2AF6-42B1-844A-7A870D250CDC}|Calculator.csproj|\\\\chewys_nas\\workspace\\applications\\tutorials\\github repos\\calculator\\controllers\\calculatorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2083ED24-2AF6-42B1-844A-7A870D250CDC}|Calculator.csproj|\\\\chewys_nas\\workspace\\applications\\tutorials\\azure devops repos\\api-calculator\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2083ED24-2AF6-42B1-844A-7A870D250CDC}|Calculator.csproj|\\\\chewys_nas\\workspace\\applications\\tutorials\\azure devops repos\\api-calculator\\services\\weightservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2083ED24-2AF6-42B1-844A-7A870D250CDC}|Calculator.csproj|\\\\chewys_nas\\workspace\\applications\\tutorials\\azure devops repos\\api-calculator\\enums\\weightunit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2083ED24-2AF6-42B1-844A-7A870D250CDC}|Calculator.csproj|\\\\chewys_nas\\workspace\\applications\\tutorials\\azure devops repos\\api-calculator\\controllers\\calculatorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -17,19 +26,62 @@
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CalculatorController.cs",
-              "DocumentMoniker": "\\\\Chewys_NAS\\workspace\\Applications\\Tutorials\\GitHub repos\\Calculator\\Controllers\\CalculatorController.cs",
-              "RelativeDocumentMoniker": "Controllers\\CalculatorController.cs",
-              "ToolTip": "\\\\Chewys_NAS\\workspace\\Applications\\Tutorials\\GitHub repos\\Calculator\\Controllers\\CalculatorController.cs",
-              "RelativeToolTip": "Controllers\\CalculatorController.cs",
-              "ViewState": "AQIAAAsAAACA08zMzEwfwBIAAAAOAAAA",
+              "Title": ".gitignore",
+              "DocumentMoniker": "\\\\Chewys_NAS\\workspace\\Applications\\Tutorials\\Azure DevOps repos\\api-calculator\\.gitignore",
+              "RelativeDocumentMoniker": ".gitignore",
+              "ToolTip": "\\\\Chewys_NAS\\workspace\\Applications\\Tutorials\\Azure DevOps repos\\api-calculator\\.gitignore",
+              "RelativeToolTip": ".gitignore",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-06-19T03:52:32.381Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "WeightUnit.cs",
+              "DocumentMoniker": "\\\\Chewys_NAS\\workspace\\Applications\\Tutorials\\Azure DevOps repos\\api-calculator\\Enums\\WeightUnit.cs",
+              "RelativeDocumentMoniker": "Enums\\WeightUnit.cs",
+              "ToolTip": "\\\\Chewys_NAS\\workspace\\Applications\\Tutorials\\Azure DevOps repos\\api-calculator\\Enums\\WeightUnit.cs",
+              "RelativeToolTip": "Enums\\WeightUnit.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAQwAsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-17T06:18:00.754Z",
+              "WhenOpened": "2024-06-19T02:52:09.86Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WeightService.cs",
+              "DocumentMoniker": "\\\\Chewys_NAS\\workspace\\Applications\\Tutorials\\Azure DevOps repos\\api-calculator\\Services\\WeightService.cs",
+              "RelativeDocumentMoniker": "Services\\WeightService.cs",
+              "ToolTip": "\\\\Chewys_NAS\\workspace\\Applications\\Tutorials\\Azure DevOps repos\\api-calculator\\Services\\WeightService.cs",
+              "RelativeToolTip": "Services\\WeightService.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAAAkAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T04:34:56.988Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CalculatorController.cs",
+              "DocumentMoniker": "\\\\Chewys_NAS\\workspace\\Applications\\Tutorials\\Azure DevOps repos\\api-calculator\\Controllers\\CalculatorController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CalculatorController.cs",
+              "ToolTip": "\\\\Chewys_NAS\\workspace\\Applications\\Tutorials\\Azure DevOps repos\\api-calculator\\Controllers\\CalculatorController.cs",
+              "RelativeToolTip": "Controllers\\CalculatorController.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAQwCgAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T04:09:17.313Z",
               "EditorCaption": ""
             }
           ]
