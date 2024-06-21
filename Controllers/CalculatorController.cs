@@ -65,6 +65,14 @@ namespace Calculator.Controllers
         }
 
         [HttpGet]
+        [Route("Square")]
+        public Object Power(double? baseNumber)
+        {
+            var response = this.calcService.Power(baseNumber, 2);
+            return Ok(response);
+        }
+
+        [HttpGet]
         [Route("GetAge")]
         public Object GetAge(int? birthYear, int? birthMonth, int? birthDay,
             int? onYear, int? onMonth, int? onDay)
