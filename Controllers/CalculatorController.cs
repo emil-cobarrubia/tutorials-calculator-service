@@ -65,6 +65,14 @@ namespace Calculator.Controllers
         }
 
         [HttpGet]
+        [Route("SquareRoot")]
+        public Object Power(double? baseNumber)
+        {
+            var response = this.calcService.Power(baseNumber, 0.5);
+            return Ok(response);
+        }
+
+        [HttpGet]
         [Route("Square")]
         public Object Power(double? baseNumber)
         {
