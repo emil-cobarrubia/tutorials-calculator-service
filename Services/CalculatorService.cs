@@ -61,6 +61,19 @@ namespace Calculator.Services
             return response;
         }
 
+        public Object Power(double? baseNumber, double? exponent)
+        {
+
+            var response = new
+            {
+                inputBase = baseNumber,
+                exponent = exponent,
+                result = Math.Pow((double)baseNumber, (double)exponent)
+            };
+
+            return response;
+        }
+
         public Object GetAge(int? birthYear, int? birthMonth, int? birthDay,
             int? onYear, int? onMonth, int? onDay)
         {
