@@ -1,69 +1,119 @@
 ﻿using Calculator.Constants;
 using Calculator.Enums;
 using Calculator.Services;
+using Calculator.DTOs;
+using Calculator.Interfaces;
 using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace Weight.Services
 {
     public class WeightService : IWeightService
     {
-        public Object GetWeightOnMoon(double weight)
+        public WeightResponseDto GetWeightOnMoon(double weight, string? unit)
         {
-            return this.GetWeightBasedOnGravity(weight, EarthMoonConstants.SurfaceGravityMPerS2);
-        }
-
-        public Object GetWeightOnMercury(double weight)
-        {
-            return this.GetWeightBasedOnGravity(weight, MercuryConstants.SurfaceGravityMPerS2);
-        }
-
-        public Object GetWeightOnVenus(double weight)
-        {
-            return this.GetWeightBasedOnGravity(weight, VenusConstants.SurfaceGravityMPerS2);
-        }
-
-        public Object GetWeightOnMars(double weight)
-        {
-            return this.GetWeightBasedOnGravity(weight, MarsConstants.SurfaceGravityMPerS2);
-        }
-
-        public Object GetWeightOnJupiter(double weight)
-        {
-            return this.GetWeightBasedOnGravity(weight, JupiterConstants.SurfaceGravityMPerS2);
-        }
-
-        public Object GetWeightOnSaturn(double weight)
-        {
-            return this.GetWeightBasedOnGravity(weight, SaturnConstants.SurfaceGravityMPerS2);
-        }
-
-        public Object GetWeightOnUranus(double weight)
-        {
-            return this.GetWeightBasedOnGravity(weight, UranusConstants.SurfaceGravityMPerS2);
-        }
-
-        public Object GetWeightOnNeptune(double weight)
-        {
-            return this.GetWeightBasedOnGravity(weight, NeptuneConstants.SurfaceGravityMPerS2);
-        }
-
-        public Object GetWeightOnPluto(double weight)
-        {
-            return this.GetWeightBasedOnGravity(weight, PlutoConstants.SurfaceGravityMPerS2);
-        }
-
-        public Object GetWeightBasedOnGravity(double weight, double surfaceGravityMPerS2)
-        {
-            var response = new {
-
-                weightOnEarth = weight,
-                weightOnMoon = (double)(weight * surfaceGravityMPerS2) / EarthConstants.SurfaceGravityMPerS2
+            WeightResponseDto response = new WeightResponseDto
+            {
+                Weight = this.GetWeightBasedOnGravity(weight, EarthMoonConstants.SurfaceGravityMPerS2),
+                Unit = unit
             };
 
             return response;
         }
 
-        public Double ConvertToKilograms(double weight, WeightUnit weightUnit)
+        public WeightResponseDto GetWeightOnMercury(double weight, string? unit)
+        {
+            WeightResponseDto response = new WeightResponseDto
+            {
+                Weight = this.GetWeightBasedOnGravity(weight, MercuryConstants.SurfaceGravityMPerS2),
+                Unit = unit
+            };
+
+            return response;
+        }
+
+        public WeightResponseDto GetWeightOnVenus(double weight, string? unit)
+        {
+            WeightResponseDto response = new WeightResponseDto
+            {
+                Weight = this.GetWeightBasedOnGravity(weight, VenusConstants.SurfaceGravityMPerS2),
+                Unit = unit
+            };
+
+            return response;
+        }
+
+        public WeightResponseDto GetWeightOnMars(double weight, string? unit)
+        {
+            WeightResponseDto response = new WeightResponseDto
+            {
+                Weight = this.GetWeightBasedOnGravity(weight, MarsConstants.SurfaceGravityMPerS2),
+                Unit = unit
+            };
+
+            return response;
+        }
+
+        public WeightResponseDto GetWeightOnJupiter(double weight, string? unit)
+        {
+            WeightResponseDto response = new WeightResponseDto
+            {
+                Weight = this.GetWeightBasedOnGravity(weight, JupiterConstants.SurfaceGravityMPerS2),
+                Unit = unit
+            };
+
+            return response;
+        }
+
+        public WeightResponseDto GetWeightOnSaturn(double weight, string? unit)
+        {
+            WeightResponseDto response = new WeightResponseDto
+            {
+                Weight = this.GetWeightBasedOnGravity(weight, SaturnConstants.SurfaceGravityMPerS2),
+                Unit = unit
+            };
+
+            return response;
+        }
+
+        public WeightResponseDto GetWeightOnUranus(double weight, string? unit)
+        {
+            WeightResponseDto response = new WeightResponseDto
+            {
+                Weight = this.GetWeightBasedOnGravity(weight, UranusConstants.SurfaceGravityMPerS2),
+                Unit = unit
+            };
+
+            return response;
+        }
+
+        public WeightResponseDto GetWeightOnNeptune(double weight, string? unit)
+        {
+            WeightResponseDto response = new WeightResponseDto
+            {
+                Weight = this.GetWeightBasedOnGravity(weight, NeptuneConstants.SurfaceGravityMPerS2),
+                Unit = unit
+            };
+
+            return response;
+        }
+
+        public WeightResponseDto GetWeightOnPluto(double weight, string? unit)
+        {
+            WeightResponseDto response = new WeightResponseDto
+            {
+                Weight = this.GetWeightBasedOnGravity(weight, PlutoConstants.SurfaceGravityMPerS2),
+                Unit = unit
+            };
+
+            return response;
+        }
+
+        private double GetWeightBasedOnGravity(double weight, double surfaceGravityMPerS2)
+        {
+            return (double)(weight * surfaceGravityMPerS2) / EarthConstants.SurfaceGravityMPerS2;
+        }
+
+        public double ConvertToKilograms(double weight, WeightUnit weightUnit)
         {
             double weightKg = 0;
             switch(weightUnit)
@@ -87,19 +137,5 @@ namespace Weight.Services
 
             return weightKg;
         }
-    }
-
-    public interface IWeightService
-    {
-        Object GetWeightOnMoon(double weight);
-        Object GetWeightOnMercury(double weight);
-        Object GetWeightOnVenus(double weight);
-        Object GetWeightOnMars(double weight);
-        Object GetWeightOnJupiter(double weight);
-        Object GetWeightOnSaturn(double weight);
-        Object GetWeightOnUranus(double weight);
-        Object GetWeightOnNeptune(double weight);
-        Object GetWeightOnPluto(double weight);
-        Object GetWeightBasedOnGravity(double weight, double surfaceGravityMPerS2);
     }
 }

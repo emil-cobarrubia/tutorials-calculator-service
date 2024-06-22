@@ -1,4 +1,6 @@
-﻿using Calculator.Services;
+﻿using Calculator.DTOs;
+using Calculator.Services;
+using Calculator.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,17 +18,17 @@ namespace Calculator.Controllers
 
         [HttpGet]
         [Route("FahrenheitToCelsius")]
-        public Object FahrenheitToCelsius(double? fahrenheit)
+        public ActionResult<TemperatureResponseDto> FahrenheitToCelsius(double fahrenheit)
         {
-            var response = this.temperatureService.FahrenheitToCelsius(fahrenheit);
+            TemperatureResponseDto response = this.temperatureService.FahrenheitToCelsius(fahrenheit);
             return Ok(response);
         }
 
         [HttpGet]
         [Route("CelsiusToFahrenheit")]
-        public Object CelsiusToFahrenheit(double? celsius)
+        public ActionResult<TemperatureResponseDto> CelsiusToFahrenheit(double celsius)
         {
-            var response = this.temperatureService.CelsiusToFahrenheit(celsius);
+            TemperatureResponseDto response = this.temperatureService.CelsiusToFahrenheit(celsius);
             return Ok(response);
         }
     }

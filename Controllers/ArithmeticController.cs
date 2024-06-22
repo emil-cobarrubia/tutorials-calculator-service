@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Calculator.Services;
+using Calculator.Interfaces;
 using Weight.Services;
 using Calculator.Enums;
+using Calculator.DTOs;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -31,49 +33,49 @@ namespace Calculator.Controllers
         /// <response code="400">If the parameters are incorrect.</response>
         [HttpGet]
         [Route("Add")]
-        public Object Add([FromQuery] double[]? numbers)
+        public ActionResult<ArithmeticResponseDto> Add([FromQuery] double[] numbers)
         {
-            var response = this.arithmeticService.Add(numbers);
+            ArithmeticResponseDto response = this.arithmeticService.Add(numbers);
             return Ok(response);
         }
 
         [HttpGet]
         [Route("Subtract")]
-        public Object Subtract([FromQuery] double[]? numbers)
+        public ActionResult<ArithmeticResponseDto> Subtract([FromQuery] double[] numbers)
         {
-            var response = this.arithmeticService.Subtract(numbers);
+            ArithmeticResponseDto response = this.arithmeticService.Subtract(numbers);
             return Ok(response);
         }
 
         [HttpGet]
         [Route("Multiply")]
-        public Object Multiply([FromQuery] double[]? numbers)
+        public ActionResult<ArithmeticResponseDto> Multiply([FromQuery] double[] numbers)
         {
-            var response = this.arithmeticService.Multiply(numbers);
+            ArithmeticResponseDto response = this.arithmeticService.Multiply(numbers);
             return Ok(response);
         }
 
         [HttpGet]
         [Route("Power")]
-        public Object Power(double? baseNumber, double exponent)
+        public ActionResult<ArithmeticResponseDto> Power(double baseNumber, double exponent)
         {
-            var response = this.arithmeticService.Power(baseNumber, exponent);
+            ArithmeticResponseDto response = this.arithmeticService.Power(baseNumber, exponent);
             return Ok(response);
         }
 
         [HttpGet]
         [Route("SquareRoot")]
-        public Object SquareRoot(double? baseNumber)
+        public ActionResult<ArithmeticResponseDto> SquareRoot(double baseNumber)
         {
-            var response = this.arithmeticService.Power(baseNumber, 0.5);
+            ArithmeticResponseDto response = this.arithmeticService.Power(baseNumber, 0.5);
             return Ok(response);
         }
 
         [HttpGet]
         [Route("Square")]
-        public Object Square(double? baseNumber)
+        public ActionResult<ArithmeticResponseDto> Square(double baseNumber)
         {
-            var response = this.arithmeticService.Power(baseNumber, 2);
+            ArithmeticResponseDto response = this.arithmeticService.Power(baseNumber, 2);
             return Ok(response);
         }
     }
