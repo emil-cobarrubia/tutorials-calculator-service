@@ -1,20 +1,25 @@
+using Calculator.DTOs;
+using Calculator.Interfaces;
 using Humanizer;
+using Microsoft.AspNetCore.Components.Forms;
 using NuGet.Common;
 
 namespace Calculator.Services
 {
     public class ArithmeticService : IArithmeticService
     {
-        public Object Add(double[] numbers)
+        public ArithmeticResponseDto Add(double[] numbers)
         {
-            var response = new { input = string.Join(", ", numbers),
-                result = numbers.Sum()
+            ArithmeticResponseDto response = new ArithmeticResponseDto
+            {
+                Input = string.Join(", ", numbers),
+                Result = numbers.Sum()
             };
-
+                    
             return response;
         }
 
-        public Object Subtract(double[] numbers)
+        public ArithmeticResponseDto Subtract(double[] numbers)
         {
             double difference = 0;
             for(int i = 0; i < numbers.Length; i++)
@@ -25,14 +30,16 @@ namespace Calculator.Services
                     difference = difference - numbers[i];
             }
 
-            var response = new { input = string.Join(", ", numbers),
-                result = difference
+            ArithmeticResponseDto response = new ArithmeticResponseDto
+            {
+                Input = string.Join(", ", numbers),
+                Result = difference
             };
 
             return response;
         }
 
-        public Object Multiply(double[] numbers)
+        public ArithmeticResponseDto Multiply(double[] numbers)
         {
             double product = 0;
             for(int i = 0; i < numbers.Length; i++)
@@ -43,31 +50,24 @@ namespace Calculator.Services
                     product = product * numbers[i];
             }
 
-            var response = new { input = string.Join(", ", numbers),
-                result = product
+            ArithmeticResponseDto response = new ArithmeticResponseDto
+            {
+                Input = string.Join(", ", numbers),
+                Result = product
             };
 
             return response;
         }
 
-        public Object Power(double? baseNumber, double? exponent)
+        public ArithmeticResponseDto Power(double baseNumber, double exponent)
         {
-            
-            var response = new { inputBase = baseNumber,
-                exponent = exponent,
-                result = Math.Pow((double)baseNumber, (double)exponent)
+            ArithmeticResponseDto response = new ArithmeticResponseDto
+            {
+                Input = "Base: " + baseNumber.ToString() + " Exponent: " + exponent.ToString(),
+                Result = Math.Pow((double)baseNumber, (double)exponent)
             };
 
             return response;
         }
     }
-
-     public interface IArithmeticService
-    {
-        Object Add(double[]? numbers);
-        Object Subtract(double[]? numbers);
-        Object Multiply(double[]? numbers);
-        Object Power(double? baseNumber, double? exponent);
-    }
-
 }

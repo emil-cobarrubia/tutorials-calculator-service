@@ -1,8 +1,11 @@
-﻿namespace Calculator.Services
+﻿using Calculator.DTOs;
+using Calculator.Interfaces;
+
+namespace Calculator.Services
 {
     public class AgeService : IAgeService
     {
-        public Object GetAge(int? birthYear, int? birthMonth, int? birthDay,
+        public AgeResponseDto GetAge(int birthYear, int birthMonth, int birthDay,
             int? onYear, int? onMonth, int? onDay)
         {
             DateTime now = DateTime.Now;
@@ -16,39 +19,27 @@
 
             TimeSpan span = onDate.Subtract(birthDate);
 
-            int years = (int)Math.Floor(span.TotalDays / 365);
-            int days = (int)Math.Floor(span.TotalDays);
-            int hours = (int)span.TotalMinutes / 60;
-            int minutes = (int)span.TotalMinutes;
-            int seconds = (int)span.TotalSeconds;
-
-            var response = new
+            AgeResponseDto response = new AgeResponseDto
             {
 
-                inputs = new
+                BirthDate = new BirthDateResponseDto
                 {
-                    birthYear = birthYear,
-                    birthMonth = birthMonth,
-                    birthDay = birthDay
+                    Year = (int)birthYear,
+                    Month = (int)birthMonth,
+                    Day = (int)birthDay
                 },
 
-                age = new
+                Age = new AgeUnitsResponseDto
                 {
-                    years = years,
-                    days = days,
-                    hours = hours,
-                    minutes = minutes,
-                    seconds = seconds
+                    Years = (int)Math.Floor(span.TotalDays / 365),
+                    Days = (int)Math.Floor(span.TotalDays),
+                    Hours = (int)span.TotalMinutes / 60,
+                    Minutes = (int)span.TotalMinutes,
+                    Seconds = (int)span.TotalSeconds
                 }
             };
 
             return response;
         }
-    }
-
-    public interface IAgeService
-    {
-        Object GetAge(int? birthYear, int? birthMonth, int? birthDay,
-            int? onYear, int? onMonth, int? onDay);
     }
 }

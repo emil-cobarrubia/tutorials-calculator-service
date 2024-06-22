@@ -1,4 +1,6 @@
-﻿using Calculator.Enums;
+﻿using Calculator.DTOs;
+using Calculator.Enums;
+using Calculator.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Weight.Services;
@@ -22,73 +24,73 @@ namespace Calculator.Controllers
 
         [HttpGet]
         [Route("GetWeightOnMoon")]
-        public Object GetWeightOnMoon(double weight)
+        public ActionResult<WeightResponseDto> GetWeightOnMoon(double weight)
         {
-            var response = this.weightService.GetWeightOnMoon(weight);
+            WeightResponseDto response = this.weightService.GetWeightOnMoon(weight, null);
             return Ok(response);
         }
 
         [HttpGet]
         [Route("GetWeightOnMercury")]
-        public Object GetWeightOnMercury(double weight)
+        public ActionResult<WeightResponseDto> GetWeightOnMercury(double weight)
         {
-            var response = this.weightService.GetWeightOnMercury(weight);
+            WeightResponseDto response = this.weightService.GetWeightOnMercury(weight, null);
             return Ok(response);
         }
 
         [HttpGet]
         [Route("GetWeightOnVenus")]
-        public Object GetWeightOnVenus(double weight)
+        public ActionResult<WeightResponseDto> GetWeightOnVenus(double weight)
         {
-            var response = this.weightService.GetWeightOnVenus(weight);
+            WeightResponseDto response = this.weightService.GetWeightOnVenus(weight, null);
             return Ok(response);
         }
 
         [HttpGet]
         [Route("GetWeightOnMars")]
-        public Object GetWeightOnMars(double weight)
+        public ActionResult<WeightResponseDto> GetWeightOnMars(double weight)
         {
-            var response = this.weightService.GetWeightOnMars(weight);
+            WeightResponseDto response = this.weightService.GetWeightOnMars(weight, null);
             return Ok(response);
         }
 
         [HttpGet]
         [Route("GetWeightOnJupiter")]
-        public Object GetWeightOnJupiter(double weight)
+        public ActionResult<WeightResponseDto> GetWeightOnJupiter(double weight)
         {
-            var response = this.weightService.GetWeightOnJupiter(weight);
+            WeightResponseDto response = this.weightService.GetWeightOnJupiter(weight, null);
             return Ok(response);
         }
 
         [HttpGet]
         [Route("GetWeightOnSaturn")]
-        public Object GetWeightOnSaturn(double weight)
+        public ActionResult<WeightResponseDto> GetWeightOnSaturn(double weight)
         {
-            var response = this.weightService.GetWeightOnSaturn(weight);
+            WeightResponseDto response = this.weightService.GetWeightOnSaturn(weight, null);
             return Ok(response);
         }
 
         [HttpGet]
         [Route("GetWeightOnUranus")]
-        public Object GetWeightOnUranus(double weight)
+        public ActionResult<WeightResponseDto> GetWeightOnUranus(double weight)
         {
-            var response = this.weightService.GetWeightOnUranus(weight);
+            WeightResponseDto response = this.weightService.GetWeightOnUranus(weight, null);
             return Ok(response);
         }
 
         [HttpGet]
         [Route("GetWeightOnNeptune")]
-        public Object GetWeightOnNeptune(double weight)
+        public ActionResult<WeightResponseDto> GetWeightOnNeptune(double weight)
         {
-            var response = this.weightService.GetWeightOnNeptune(weight);
+            WeightResponseDto response = this.weightService.GetWeightOnNeptune(weight, null);
             return Ok(response);
         }
 
         [HttpGet]
         [Route("GetWeightOnPluto")]
-        public Object GetWeightOnPluto(double weight)
+        public ActionResult<WeightResponseDto> GetWeightOnPluto(double weight)
         {
-            var response = this.weightService.GetWeightOnPluto(weight);
+            WeightResponseDto response = this.weightService.GetWeightOnPluto(weight, null);
             return Ok(response);
         }
     }

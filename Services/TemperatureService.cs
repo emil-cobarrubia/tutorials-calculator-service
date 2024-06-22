@@ -1,34 +1,30 @@
-﻿namespace Calculator.Services
+﻿using Calculator.DTOs;
+using Calculator.Interfaces;
+
+namespace Calculator.Services
 {
     public class TemperatureService : ITemperatureService
     {
-        public Object FahrenheitToCelsius(double? fahrenheit)
+        public TemperatureResponseDto FahrenheitToCelsius(double fahrenheit)
         {
-            var response = new
+            TemperatureResponseDto response = new TemperatureResponseDto
             {
-                inputFahrenheit = fahrenheit,
-                celsius = Math.Round((double)((fahrenheit - 32) * ((double)5 / (double)9)), 1)
+                Fahrenheit = fahrenheit,
+                Celsius = Math.Round((double)((fahrenheit - 32) * ((double)5 / (double)9)), 1)
             };
 
             return response;
         }
 
-        public Object CelsiusToFahrenheit(double? celsius)
+        public TemperatureResponseDto CelsiusToFahrenheit(double celsius)
         {
-            var response = new
+            TemperatureResponseDto response = new TemperatureResponseDto
             {
-                inputCelsius = celsius,
-                fahrenheit = Math.Round((double)((celsius * ((double)9 / (double)5)) + 32), 1)
+                Fahrenheit = celsius,
+                Celsius = Math.Round((double)((celsius * ((double)9 / (double)5)) + 32), 1)
             };
 
             return response;
         }
-    }
-
-    public interface ITemperatureService
-    {
-        Object FahrenheitToCelsius(double? fahrenheit);
-
-        Object CelsiusToFahrenheit(double? celsius);
     }
 }
