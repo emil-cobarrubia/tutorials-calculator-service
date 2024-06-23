@@ -15,9 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CalculatorAPI.UnitTests", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorAPIUnitTests", "tests\UnitTests\Calculator.UnitTests\CalculatorAPIUnitTests\CalculatorAPIUnitTests.csproj", "{F6530210-BBAA-4AFB-9247-F65F084E57E6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "azure-pipelines", "azure-pipelines", "{2BF4BA22-4E9D-43EA-B0AB-181C7A8CA265}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".ado", ".ado", "{2BF4BA22-4E9D-43EA-B0AB-181C7A8CA265}"
 	ProjectSection(SolutionItems) = preProject
-		azure-pipelines\calculator-api-ci-pr.yml = azure-pipelines\calculator-api-ci-pr.yml
+		.ado\calculator-api-ci-pr.yml = .ado\calculator-api-ci-pr.yml
 	EndProjectSection
 EndProject
 Global
