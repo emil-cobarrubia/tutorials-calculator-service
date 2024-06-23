@@ -20,8 +20,8 @@ namespace Calculator.Services
         {
             TemperatureResponseDto response = new TemperatureResponseDto
             {
-                Fahrenheit = celsius,
-                Celsius = Math.Round((double)((celsius * ((double)9 / (double)5)) + 32), 1)
+                Celsius = celsius,
+                Fahrenheit = Math.Round((double)((celsius * ((double)9 / (double)5)) + 32), 1)
             };
 
             return response;

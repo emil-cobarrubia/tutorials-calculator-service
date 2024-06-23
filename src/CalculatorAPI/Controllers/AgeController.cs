@@ -22,6 +22,7 @@ namespace Calculator.Controllers
         public ActionResult<AgeResponseDto> GetAge(int birthYear, int birthMonth, int birthDay)
         {
             AgeResponseDto response = this.ageService.GetAge(birthYear, birthMonth, birthDay, null, null, null);
+
             return Ok(response);
         }
 
@@ -33,7 +34,10 @@ namespace Calculator.Controllers
             AgeResponseDto response = this.ageService.GetAge(birthYear, birthMonth, birthDay,
                 onYear, onMonth, onDay);
 
-            return Ok(response);
+            if (response.Success)
+                return Ok(response);
+            else
+                return BadRequest(response.ErrorMessage);
         }
     }
 
