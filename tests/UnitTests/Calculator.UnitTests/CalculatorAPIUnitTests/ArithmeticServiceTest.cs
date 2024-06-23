@@ -105,5 +105,33 @@ namespace CalculatorAPIUnitTests
             //Assert
             Assert.Equal(Math.Round(expected, 2), Math.Round(response.Result, 2));
         }
+
+        [Fact]
+        public void Log10_Of_10_Return_1()
+        {
+            //Arrange
+            ArithmeticService testCase = new ArithmeticService();
+            double expected = 10;
+
+            //Act
+            ArithmeticResponseDto response = testCase.LogBase10(10);
+
+            //Assert
+            Assert.Equal(expected, response.Result);
+        }
+
+        [Fact]
+        public void Log10_Of_Negative_Return_Error()
+        {
+            //Arrange
+            ArithmeticService testCase = new ArithmeticService();
+            bool expected = false;
+
+            //Act
+            ArithmeticResponseDto response = testCase.LogBase10(10);
+
+            //Assert
+            Assert.Equal(expected, response.Success);
+        }
     }
 }

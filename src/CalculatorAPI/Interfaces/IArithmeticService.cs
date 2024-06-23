@@ -8,6 +8,7 @@ namespace Calculator.Interfaces
         ArithmeticResponseDto Subtract(double[] numbers);
         ArithmeticResponseDto Multiply(double[] numbers);
         ArithmeticResponseDto Divide(double[] numbers);
+        ArithmeticResponseDto LogBase10(double number);
         ArithmeticResponseDto Power(double baseNumber, double exponent);
     }
 }

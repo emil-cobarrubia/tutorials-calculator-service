@@ -86,5 +86,17 @@ namespace Calculator.Controllers
             ArithmeticResponseDto response = this.arithmeticService.Power(baseNumber, 2);
             return Ok(response);
         }
+
+        [HttpGet]
+        [Route("LogBase10")]
+        public ActionResult<ArithmeticResponseDto> LogBase10(double number)
+        {
+            ArithmeticResponseDto response = this.arithmeticService.LogBase10(number);
+
+            if(response.Success)
+                return Ok(response);
+            else
+                return BadRequest(response.ErrorMessage);
+        }
     }
 }
