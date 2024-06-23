@@ -16,6 +16,6 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CalculatorAPIUnitTests
-build_property.ProjectDir = C:\Users\emilc\source\repos\api-calculator\tests\UnitTests\Calculator.UnitTests\CalculatorAPIUnitTests\
+build_property.ProjectDir = /Users/emilcobarrubia/Documents/source/repos/api-calculator/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
