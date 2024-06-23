@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calculator", "Calculator.csproj", "{2083ED24-2AF6-42B1-844A-7A870D250CDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorAPI", "src\CalculatorAPI\CalculatorAPI.csproj", "{2083ED24-2AF6-42B1-844A-7A870D250CDC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A3254FF0-FEF5-4BBA-87A1-ABB1B27C3FFD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0CB8A071-1BA3-4765-B318-D2919AC0662F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CalculatorAPI", "CalculatorAPI", "{2A97536F-478C-4E2C-A068-CF13E34188D5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CalculatorAPI.UnitTests", "CalculatorAPI.UnitTests", "{00C70185-B8B8-4B24-AF8A-906C2A175D6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorAPIUnitTests", "tests\UnitTests\Calculator.UnitTests\CalculatorAPIUnitTests\CalculatorAPIUnitTests.csproj", "{F6530210-BBAA-4AFB-9247-F65F084E57E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +25,19 @@ Global
 		{2083ED24-2AF6-42B1-844A-7A870D250CDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2083ED24-2AF6-42B1-844A-7A870D250CDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2083ED24-2AF6-42B1-844A-7A870D250CDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6530210-BBAA-4AFB-9247-F65F084E57E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6530210-BBAA-4AFB-9247-F65F084E57E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6530210-BBAA-4AFB-9247-F65F084E57E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6530210-BBAA-4AFB-9247-F65F084E57E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2083ED24-2AF6-42B1-844A-7A870D250CDC} = {2A97536F-478C-4E2C-A068-CF13E34188D5}
+		{2A97536F-478C-4E2C-A068-CF13E34188D5} = {A3254FF0-FEF5-4BBA-87A1-ABB1B27C3FFD}
+		{00C70185-B8B8-4B24-AF8A-906C2A175D6F} = {0CB8A071-1BA3-4765-B318-D2919AC0662F}
+		{F6530210-BBAA-4AFB-9247-F65F084E57E6} = {00C70185-B8B8-4B24-AF8A-906C2A175D6F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BA3A6CF7-FDDE-4C7F-9F39-A28730D9A3C0}
