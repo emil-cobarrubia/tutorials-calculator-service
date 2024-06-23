@@ -7,6 +7,34 @@ namespace CalculatorAPIUnitTests
 {
     public class ArithmeticServiceTest
     {
+        [Fact]
+        public void LogBase10_10_Return_1()
+        {
+            //Arrange
+            ArithmeticService testCase = new ArithmeticService();
+            double expected = 1;
+
+            //Act
+            ArithmeticResponseDto response = testCase.LogBase10(10);
+
+            //Assert
+            Assert.Equal(expected, response.Result);
+        }
+
+        [Fact]
+        public void LogBase10_NegativeInput_Return_Error()
+        {
+            //Arrange
+            ArithmeticService testCase = new ArithmeticService();
+            bool expected = false;
+
+            //Act
+            ArithmeticResponseDto response = testCase.LogBase10(-10);
+
+            //Assert
+            Assert.Equal(expected, response.Success);
+        }
+
         [Theory]
         [InlineData(new double [] { 3, 4 }, 7)]
         [InlineData(new double[] { 5 }, 5)]
@@ -100,32 +128,6 @@ namespace CalculatorAPIUnitTests
             Assert.Equal(Math.Round(expected, 2), Math.Round(response.Result, 2));
         }
 
-        /*[Fact]
-        public void Log10_Of_10_Return_1()
-        {
-            //Arrange
-            ArithmeticService testCase = new ArithmeticService();
-            double expected = 10;
-
-            //Act
-            ArithmeticResponseDto response = testCase.LogBase10(10);
-
-            //Assert
-            Assert.Equal(expected, response.Result);
-        }
-
-        [Fact]
-        public void Log10_Of_Negative_Return_Error()
-        {
-            //Arrange
-            ArithmeticService testCase = new ArithmeticService();
-            bool expected = false;
-
-            //Act
-            ArithmeticResponseDto response = testCase.LogBase10(10);
-
-            //Assert
-            Assert.Equal(expected, response.Success);
-        }*/
+        
     }
 }
