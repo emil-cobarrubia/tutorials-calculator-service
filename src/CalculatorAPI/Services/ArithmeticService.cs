@@ -94,5 +94,25 @@ namespace Calculator.Services
 
             return response;
         }
+
+        public ArithmeticResponseDto LogBase10(double number)
+        {
+            ArithmeticResponseDto response = new ArithmeticResponseDto
+            {
+                Success = true
+            };
+
+            if(number < 0)
+            {
+                response.Success = false;
+                response.ErrorMessage = "Cannot take the logarithm of a negative number.";
+                return response;
+            }
+
+            response.Input = number.ToString();
+            response.Result = Math.Log10(number);
+
+            return response;
+        }
     }
 }
