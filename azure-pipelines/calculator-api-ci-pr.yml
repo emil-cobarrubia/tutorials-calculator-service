@@ -28,4 +28,4 @@ stages:
       displayName: Test
       inputs:
         command: 'test'
-        projects: 'tests/UnitTests/*.csproj'
+        projects: 'tests/UnitTests/Calculator.UnitTests/*.csproj'
