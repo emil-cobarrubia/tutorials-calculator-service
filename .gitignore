@@ -2,8 +2,13 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 # Ignore build output directories
-bin/
-obj/
+**/bin/
+**/obj/
+**/.vs/
+**/build/
+**/dist/
+
+
 
 # Ignore user-specific files
 *.user
