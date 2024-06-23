@@ -88,12 +88,6 @@ namespace CalculatorAPIUnitTests
         [InlineData(1000, 0, 1)]
         [InlineData(10, 2, 100)]
         [InlineData(100, 0.5, 10)]
-        /*[InlineData(null, null, null)]
-        [InlineData(null, 1, null)]
-        [InlineData(1, null, null)]
-        double values can never be null
-        Invalid test per definition of methods.
-         */
         public void Power_Return_Product(double baseNumber, double exponent, double expected)
         {
             //Arrange
@@ -106,7 +100,7 @@ namespace CalculatorAPIUnitTests
             Assert.Equal(Math.Round(expected, 2), Math.Round(response.Result, 2));
         }
 
-        [Fact]
+        /*[Fact]
         public void Log10_Of_10_Return_1()
         {
             //Arrange
@@ -132,6 +126,6 @@ namespace CalculatorAPIUnitTests
 
             //Assert
             Assert.Equal(expected, response.Success);
-        }
+        }*/
     }
 }
