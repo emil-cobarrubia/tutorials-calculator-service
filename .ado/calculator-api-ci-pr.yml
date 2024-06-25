@@ -33,10 +33,10 @@ stages:
     - script: |
         dotnet tool install --global dotnet-reportgenerator-globaltool
       displayName: 'Install ReportGenerator'
-
-    - script: dotnet reportgenerator "-reports:$(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/TestResults/Coverage/coverage.cobertura.xml" "-targetDir:$(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/TestResults/Coverage/Reports" -tag:$(Build.BuildNumber) -reportTypes:htmlInline
-      workingDirectory: $(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests
-      displayName: 'dotnet reportgenerator'
+    
+    - script: |
+        reportgenerator "-reports:$(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/TestResults/Coverage/coverage.cobertura.xml" "-targetdir:$(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/TestResults/Coverage/Reports" "-reporttypes:Html"
+      displayName: 'Generate code coverage report'
 
     - task: PublishCodeCoverageResults@1
       displayName: 'Publish code coverage results'
