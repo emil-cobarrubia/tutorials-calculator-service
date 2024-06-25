@@ -30,14 +30,10 @@ stages:
         command: 'test'
         projects: '**/*Tests.csproj'
 
-    - task: UseDotNet@2
-      displayName: Install ReportGenerator
-      inputs:
-        packageType: 'global'
-        command: 'tool'
-        version: '5.3.6'
-        packageName: 'dotnet-reportgenerator-globaltool'
-    
+    - script: |
+        dotnet tool install --global dotnet-reportgenerator-globaltool
+      displayName: 'Install ReportGenerator'
+
     - script: |
         reportgenerator "-reports:$(Agent.TempDirectory)/**/coverage.cobertura.xml" "-targetdir:$(Build.ArtifactStagingDirectory)/CodeCoverage" "-reporttypes:Html"
       displayName: 'Generate code coverage report'
