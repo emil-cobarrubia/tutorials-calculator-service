@@ -29,14 +29,15 @@ stages:
       displayName: 'Install ReportGenerator'
     
     - task: DotNetCoreCLI@2
-      displayName: RunUnitTests
+      displayName: Run Unit Tests and Collect Coverage
       inputs:
         command: 'test'
         projects: '**/*Tests.csproj'
-        arguments: '--configuration $(BuildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/TestResults/Coverage/' 
+        arguments: '--configuration $(BuildConfiguration) --collect:"XPlat Code Coverage" /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/TestResults/Coverage/coverage.cobertura.xml' 
     
     - script: |
         ls $(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/TestResults/Coverage/
+        ls $(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/TestResults/Coverage/Reports
       displayName: 'Debug'
 
     - script: |
