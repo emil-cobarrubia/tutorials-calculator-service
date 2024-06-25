@@ -30,6 +30,12 @@ stages:
         command: 'test'
         projects: '**/*Tests.csproj'
         arguments: '--configuration $(BuildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=TestResults/Coverage/' 
+    
+    - script: |
+        ls $(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/TestResults/Coverage/
+        ls $(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/TestResults/Coverage/Reports
+        reportgenerator "-reports:$(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/TestResults/Coverage/*.cobertura.xml" "-targetdir:$(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/TestResults/Coverage/Reports" "-reporttypes:Html"
+      displayName: 'Generate code coverage report'
 
     - script: |
         dotnet tool install --global dotnet-reportgenerator-globaltool
