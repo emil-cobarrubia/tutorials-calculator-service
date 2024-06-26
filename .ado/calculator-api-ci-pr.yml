@@ -32,11 +32,11 @@ stages:
         dotnet tool install --global dotnet-reportgenerator-globaltool
       displayName: 'Install ReportGenerator'
     
-    - script: dotnet test $(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/CalculatorAPIUnitTests.csproj --collect:"XPlat Code Coverage"
+    - script: dotnet test $(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/CalculatorAPIUnitTests.csproj --collect:"XPlat Code Coverage" --results-directory $(Agent.TempDirectory)/TestResults
       displayName: 'Run Unit Tests and Collect Coverage'
     
     - script: |
-        COVERAGE_FILE_PATH=$(find $(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/TestResults -name 'coverage.cobertura.xml' | head -n 1)
+        COVERAGE_FILE_PATH=$(find $(Agent.TempDirectory)/TestResults -name 'coverage.cobertura.xml' | head -n 1)
         COVERAGE_FILE_PATH=$(dirname "$COVERAGE_FILE_PATH")
         echo "##vso[task.setvariable variable=CoverageDirectory]$COVERAGE_FILE_PATH"
         echo "Coverage directory set to: $COVERAGE_FILE_PATH"
