@@ -37,14 +37,14 @@ stages:
       inputs:
         command: 'test'
         projects: '**/*Tests.csproj'
-        arguments: '--configuration $(BuildConfiguration) --collect:"XPlat Code Coverage" /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$(Agent.TempDirectory)/**/coverage.cobertura.xml' 
+        arguments: '--configuration $(BuildConfiguration) --collect:"XPlat Code Coverage" /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$(Agent.TempDirectory)/TestResults/**/coverage.cobertura.xml' 
     
     - script: |
         ls $(Agent.TempDirectory)
       displayName: 'Debug Agent.TempDirectory'
     
     - script: |
-        ls $(Build.SourcesDirectory)
+        ls $(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/
       displayName: 'Build.SourcesDirectory'
     
     
