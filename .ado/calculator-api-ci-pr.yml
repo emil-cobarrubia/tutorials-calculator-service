@@ -37,9 +37,8 @@ stages:
     
     - script: |
         ls $(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/TestResults/Coverage/
-        ls $(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/TestResults/Coverage/Reports
       displayName: 'Debug'
-
+    
     - script: |
         reportgenerator "-reports:$(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/TestResults/Coverage/coverage.cobertura.xml" "-targetdir:$(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/TestResults/Coverage/Reports" "-reporttypes:Html"
       displayName: 'Generate code coverage report'
