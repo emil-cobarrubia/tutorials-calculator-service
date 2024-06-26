@@ -42,6 +42,8 @@ stages:
       displayName: 'Find GUID Directory'
     
     - script: |
+        COVERAGE_FILE_PATH=$(find $(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/TestResults -name 'coverage.cobertura.xml' | head -n 1)
+        COVERAGE_FILE_PATH=$(dirname "$COVERAGE_FILE_PATH")
         reportgenerator "-reports:$COVERAGE_FILE_PATH/coverage.cobertura.xml" "-targetdir:$COVERAGE_FILE_PATH/CoverageReport" "-reporttypes:Html"
       displayName: 'Generate HTML report'
     
