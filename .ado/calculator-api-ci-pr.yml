@@ -41,7 +41,10 @@ stages:
     
     - script: |
         ls $(Agent.TempDirectory)
+      displayName: 'Debug Agent.TempDirectory'
+    
+    - script: |
         ls $(Build.SourcesDirectory)
-      displayName: 'Debug'
+      displayName: 'Build.SourcesDirectory'
     
     
