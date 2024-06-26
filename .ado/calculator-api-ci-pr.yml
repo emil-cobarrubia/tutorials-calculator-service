@@ -51,6 +51,7 @@ stages:
     - script: |
         ls $(Agent.TempDirectory)
         ls $(Agent.TempDirectory)/**/
+        ls $(Build.SourcesDirectory)/
       displayName: 'Debug'
 
     - task: PublishCodeCoverageResults@1
