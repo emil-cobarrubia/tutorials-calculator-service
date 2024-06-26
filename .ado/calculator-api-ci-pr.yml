@@ -3,6 +3,9 @@ resources:
     - repository: self
       trigger: none
 
+variables:
+  runRestoreAndBuild: false  # Default to true, can be overridden
+
 stages:
 - stage: Build
   displayName: Build .Net Core Solution
@@ -11,18 +14,19 @@ stages:
     pool:
       vmImage: ubuntu-latest
     steps:
-    - task: DotNetCoreCLI@2
-      displayName: Restore
-      inputs:
-        command: 'restore'
-        projects: '**/*.sln'
-        feedsToUse: 'select'
+    - ${{ if eq(variables['runRestoreAndBuild'], 'true') }}:
+      - task: DotNetCoreCLI@2
+        displayName: Restore
+        inputs:
+          command: 'restore'
+          projects: '**/*.sln'
+          feedsToUse: 'select'
 
-    - task: DotNetCoreCLI@2
-      displayName: Build
-      inputs:
-        command: 'build'
-        projects: '**/*.sln'
+      - task: DotNetCoreCLI@2
+        displayName: Build
+        inputs:
+          command: 'build'
+          projects: '**/*.sln'
     
     - script: |
         dotnet tool install --global dotnet-reportgenerator-globaltool
@@ -43,6 +47,11 @@ stages:
     - script: |
         reportgenerator "-reports:$(Agent.TempDirectory)/**/coverage.cobertura.xml" "-reports:$(Agent.TempDirectory)/**/" "-reporttypes:Html"
       displayName: 'Generate code coverage report'
+
+    - script: |
+        ls $(Agent.TempDirectory)
+        ls $(Agent.TempDirectory)/**/
+      displayName: 'Debug'
 
     - task: PublishCodeCoverageResults@1
       displayName: 'Publish code coverage results'
