@@ -4,7 +4,7 @@ resources:
       trigger: none
 
 variables:
-  runRestoreAndBuild: false  # Default to true, can be overridden
+  runRestoreAndBuild: true  # Default to true, can be overridden
 
 stages:
 - stage: Build
