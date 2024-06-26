@@ -40,14 +40,14 @@ stages:
         COVERAGE_FILE_PATH=$(dirname "$COVERAGE_FILE_PATH")
         echo "##vso[task.setvariable variable=CoverageDirectory]$COVERAGE_FILE_PATH"
         echo "Coverage directory set to: $COVERAGE_FILE_PATH"
-      displayName: 'Find GUID Directory'
+      displayName: 'Find Coverage GUID Directory'
 
     - script: |
         reportgenerator "-reports:$(CoverageDirectory)/coverage.cobertura.xml" "-targetdir:$(CoverageDirectory)/CoverageReport" "-reporttypes:Html"
-      displayName: 'Generate HTML report'
+      displayName: 'Generate Coverage Report'
 
     - task: PublishCodeCoverageResults@1
-      displayName: 'Publish Code Coverage Results'
+      displayName: 'Publish Coverage Results'
       inputs:
         codeCoverageTool: 'Cobertura'
         summaryFileLocation: '$(CoverageDirectory)/coverage.cobertura.xml'
@@ -55,7 +55,7 @@ stages:
         failIfCoverageEmpty: true
 
     - task: PublishBuildArtifacts@1
-      displayName: 'Publish Code Coverage Report'
+      displayName: 'Publish Coverage Report'
       inputs:
         PathtoPublish: '$(CoverageDirectory)/CoverageReport'
         ArtifactName: 'CodeCoverage'
