@@ -41,3 +41,7 @@ stages:
         echo $COVERAGE_FILE_PATH
       displayName: 'Find GUID Directory'
     
+    - script: |
+        reportgenerator "-reports:$COVERAGE_FILE_PATH/coverage.cobertura.xml" "-targetdir:$COVERAGE_FILE_PATH/CoverageReport" "-reporttypes:Html"
+      displayName: 'Generate HTML report'
+    
