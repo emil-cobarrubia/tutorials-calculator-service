@@ -8,7 +8,11 @@
 **/build/
 **/dist/
 
+# Ignore Locally Ran Test Files
+TestResults/
 
+# Ignore MAC
+.DS_Store
 
 # Ignore user-specific files
 *.user
