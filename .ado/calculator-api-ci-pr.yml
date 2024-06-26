@@ -36,11 +36,7 @@ stages:
       displayName: 'dotnet test'
 
     - script: |
-        ls $(Agent.TempDirectory)
-      displayName: 'Debug Agent.TempDirectory'
-    
-    - script: |
-        ls $(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/TestResults/
-      displayName: 'Directory of TestResults'
+        ls $(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/TestResults/Coverage
+      displayName: 'Directory of Coverage'
     
     
