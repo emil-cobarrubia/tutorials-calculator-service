@@ -32,15 +32,11 @@ stages:
         dotnet tool install --global dotnet-reportgenerator-globaltool
       displayName: 'Install ReportGenerator'
     
-    - script: dotnet test $(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/CalculatorAPIUnitTests.csproj --logger "trx;LogFileName=testresults.trx" /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/TestResults/Coverage/
-      displayName: 'dotnet test'
+    - script: dotnet test $(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/CalculatorAPIUnitTests.csproj --collect:"XPlat Code Coverage"
+      displayName: 'Run Unit Tests and Collect Coverage'
 
     - script: |
-        ls $(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/TestResults
-      displayName: 'Directory of TestResults'
-
-    - script: |
-        ls $(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/TestResults/Coverage
-      displayName: 'Directory of Coverage'
-    
+        COVERAGE_FILE_PATH=$(find $(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/TestResults -name 'coverage.cobertura.xml' | head -n 1)
+        COVERAGE_FILE_PATH=$(dirname "$COVERAGE_FILE_PATH")
+      displayName: 'Find GUID Directory'
     
