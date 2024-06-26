@@ -32,7 +32,7 @@ stages:
         dotnet tool install --global dotnet-reportgenerator-globaltool
       displayName: 'Install ReportGenerator'
     
-    - script: dotnet test $(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/CalculatorAPIUnitTests.csproj --logger "trx;LogFileName=testresults.trx" /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/TestResults/Coverage/coverage.cobertura.xml
+    - script: dotnet test $(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/CalculatorAPIUnitTests.csproj --logger "trx;LogFileName=testresults.trx" /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/TestResults/Coverage/
       displayName: 'dotnet test'
 
     - script: |
