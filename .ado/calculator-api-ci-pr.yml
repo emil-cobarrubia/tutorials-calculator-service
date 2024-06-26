@@ -38,5 +38,6 @@ stages:
     - script: |
         COVERAGE_FILE_PATH=$(find $(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/TestResults -name 'coverage.cobertura.xml' | head -n 1)
         COVERAGE_FILE_PATH=$(dirname "$COVERAGE_FILE_PATH")
+        echo $COVERAGE_FILE_PATH
       displayName: 'Find GUID Directory'
     
