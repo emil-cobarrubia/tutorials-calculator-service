@@ -34,16 +34,30 @@ stages:
     
     - script: dotnet test $(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/CalculatorAPIUnitTests.csproj --collect:"XPlat Code Coverage"
       displayName: 'Run Unit Tests and Collect Coverage'
-
-    - script: |
-        COVERAGE_FILE_PATH=$(find $(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/TestResults -name 'coverage.cobertura.xml' | head -n 1)
-        COVERAGE_FILE_PATH=$(dirname "$COVERAGE_FILE_PATH")
-        echo $COVERAGE_FILE_PATH
-      displayName: 'Find GUID Directory'
     
     - script: |
         COVERAGE_FILE_PATH=$(find $(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/TestResults -name 'coverage.cobertura.xml' | head -n 1)
         COVERAGE_FILE_PATH=$(dirname "$COVERAGE_FILE_PATH")
-        reportgenerator "-reports:$COVERAGE_FILE_PATH/coverage.cobertura.xml" "-targetdir:$COVERAGE_FILE_PATH/CoverageReport" "-reporttypes:Html"
+        echo "##vso[task.setvariable variable=CoverageDirectory]$COVERAGE_FILE_PATH"
+        echo "Coverage directory set to: $COVERAGE_FILE_PATH"
+      displayName: 'Find GUID Directory'
+
+    - script: |
+        reportgenerator "-reports:$(CoverageDirectory)/coverage.cobertura.xml" "-targetdir:$(CoverageDirectory)/CoverageReport" "-reporttypes:Html"
       displayName: 'Generate HTML report'
+
+    - task: PublishCodeCoverageResults@1
+      displayName: 'Publish Code Coverage Results'
+      inputs:
+        codeCoverageTool: 'Cobertura'
+        summaryFileLocation: '$(CoverageDirectory)/coverage.cobertura.xml'
+        reportDirectory: '$(CoverageDirectory)/CoverageReport'
+        failIfCoverageEmpty: true
+
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Code Coverage Report'
+      inputs:
+        PathtoPublish: '$(CoverageDirectory)/CoverageReport'
+        ArtifactName: 'CodeCoverage'
+        publishLocation: 'Container'
     
