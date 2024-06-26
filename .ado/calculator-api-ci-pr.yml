@@ -32,19 +32,15 @@ stages:
         dotnet tool install --global dotnet-reportgenerator-globaltool
       displayName: 'Install ReportGenerator'
     
-    - task: DotNetCoreCLI@2
-      displayName: Run Unit Tests and Collect Coverage
-      inputs:
-        command: 'test'
-        projects: '**/*Tests.csproj'
-        arguments: '--configuration $(BuildConfiguration) --collect:"XPlat Code Coverage" /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$(Agent.TempDirectory)/TestResults/coverage.cobertura.xml' 
-    
+    - script: dotnet test $(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/CalculatorAPIUnitTests.csproj --logger "trx;LogFileName=testresults.trx" /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=TestResults/Coverage/
+      displayName: 'dotnet test'
+
     - script: |
         ls $(Agent.TempDirectory)
       displayName: 'Debug Agent.TempDirectory'
     
     - script: |
         ls $(Build.SourcesDirectory)/tests/UnitTests/Calculator.UnitTests/CalculatorAPIUnitTests/
-      displayName: 'Build.SourcesDirectory'
+      displayName: 'Directory of CalculatorAPIUnitTests'
     
     
