@@ -4,8 +4,8 @@ namespace Calculator.Interfaces
 {
     public interface ITemperatureService
     {
-        TemperatureResponseDto FahrenheitToCelsius(double fahrenheit);
+        ServiceResponse<TemperatureResponseDto> FahrenheitToCelsius(double fahrenheit);
 
-        TemperatureResponseDto CelsiusToFahrenheit(double celsius);
+        ServiceResponse<TemperatureResponseDto> CelsiusToFahrenheit(double celsius);
     }
 }

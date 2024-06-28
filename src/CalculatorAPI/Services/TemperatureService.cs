@@ -5,23 +5,30 @@ namespace Calculator.Services
 {
     public class TemperatureService : ITemperatureService
     {
-        public TemperatureResponseDto FahrenheitToCelsius(double fahrenheit)
+        public ServiceResponse<TemperatureResponseDto> FahrenheitToCelsius(double fahrenheit)
         {
-            TemperatureResponseDto response = new TemperatureResponseDto
+            ServiceResponse<TemperatureResponseDto> response = new ServiceResponse<TemperatureResponseDto>
             {
-                Fahrenheit = fahrenheit,
-                Celsius = Math.Round((double)((fahrenheit - 32) * ((double)5 / (double)9)), 1)
+                Data = new TemperatureResponseDto
+                {
+                    Fahrenheit = fahrenheit,
+                    Celsius = Math.Round((double)((fahrenheit - 32) * ((double)5 / (double)9)), 1)
+                }
             };
 
             return response;
         }
 
-        public TemperatureResponseDto CelsiusToFahrenheit(double celsius)
+        public ServiceResponse<TemperatureResponseDto> CelsiusToFahrenheit(double celsius)
         {
-            TemperatureResponseDto response = new TemperatureResponseDto
+
+            ServiceResponse<TemperatureResponseDto> response = new ServiceResponse<TemperatureResponseDto>
             {
-                Celsius = celsius,
-                Fahrenheit = Math.Round((double)((celsius * ((double)9 / (double)5)) + 32), 1)
+                Data = new TemperatureResponseDto
+                {
+                    Celsius = celsius,
+                    Fahrenheit = Math.Round((double)((celsius * ((double)9 / (double)5)) + 32), 1)
+                }
             };
 
             return response;

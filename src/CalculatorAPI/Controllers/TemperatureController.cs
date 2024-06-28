@@ -18,18 +18,26 @@ namespace Calculator.Controllers
 
         [HttpGet]
         [Route("FahrenheitToCelsius")]
-        public ActionResult<TemperatureResponseDto> FahrenheitToCelsius(double fahrenheit)
+        public ActionResult<ServiceResponse<TemperatureResponseDto>> FahrenheitToCelsius(double fahrenheit)
         {
-            TemperatureResponseDto response = this.temperatureService.FahrenheitToCelsius(fahrenheit);
-            return Ok(response);
+            ServiceResponse<TemperatureResponseDto> response = this.temperatureService.FahrenheitToCelsius(fahrenheit);
+            
+            if(!response.Success)
+                return BadRequest(response.Error);
+            else
+                return Ok(response);
         }
 
         [HttpGet]
         [Route("CelsiusToFahrenheit")]
-        public ActionResult<TemperatureResponseDto> CelsiusToFahrenheit(double celsius)
+        public ActionResult<ServiceResponse<TemperatureResponseDto>> CelsiusToFahrenheit(double celsius)
         {
-            TemperatureResponseDto response = this.temperatureService.CelsiusToFahrenheit(celsius);
-            return Ok(response);
+            ServiceResponse<TemperatureResponseDto> response = this.temperatureService.CelsiusToFahrenheit(celsius);
+
+            if(!response.Success)
+                return BadRequest(response.Error);
+            else
+                return Ok(response);
         }
     }
 }

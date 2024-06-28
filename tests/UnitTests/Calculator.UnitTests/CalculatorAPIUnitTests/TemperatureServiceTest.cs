@@ -18,10 +18,10 @@ namespace CalculatorAPIUnitTests
             double expected = 0;
 
             //Act
-            TemperatureResponseDto response = testCase.FahrenheitToCelsius(32);
+            ServiceResponse<TemperatureResponseDto> response = testCase.FahrenheitToCelsius(32);
 
             //Assert
-            Assert.Equal(expected, Math.Round(response.Celsius));
+            Assert.Equal(expected, Math.Round(response.Data.Celsius));
         }
 
         [Fact]
@@ -32,10 +32,10 @@ namespace CalculatorAPIUnitTests
             double expected = 32;
 
             //Act
-            TemperatureResponseDto response = testCase.CelsiusToFahrenheit(0);
+            ServiceResponse<TemperatureResponseDto> response = testCase.CelsiusToFahrenheit(0);
 
             //Assert
-            Assert.Equal(expected, Math.Round(response.Fahrenheit));
+            Assert.Equal(expected, Math.Round(response.Data.Fahrenheit));
         }
     }
 }

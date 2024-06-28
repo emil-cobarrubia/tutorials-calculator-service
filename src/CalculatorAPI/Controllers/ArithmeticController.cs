@@ -33,70 +33,94 @@ namespace Calculator.Controllers
         /// <response code="400">If the parameters are incorrect.</response>
         [HttpGet]
         [Route("Add")]
-        public ActionResult<ArithmeticResponseDto> Add([FromQuery] double[] numbers)
+        public ActionResult<ServiceResponse<ArithmeticResponseDto>> Add([FromQuery] double[] numbers)
         {
-            ArithmeticResponseDto response = this.arithmeticService.Add(numbers);
-            return Ok(response);
+            ServiceResponse<ArithmeticResponseDto> response = this.arithmeticService.Add(numbers);
+            
+            if(!response.Success)
+                return BadRequest(response.Error);
+            else
+                return Ok(response);
         }
 
         [HttpGet]
         [Route("Subtract")]
-        public ActionResult<ArithmeticResponseDto> Subtract([FromQuery] double[] numbers)
+        public ActionResult<ServiceResponse<ArithmeticResponseDto>> Subtract([FromQuery] double[] numbers)
         {
-            ArithmeticResponseDto response = this.arithmeticService.Subtract(numbers);
-            return Ok(response);
+            ServiceResponse<ArithmeticResponseDto> response = this.arithmeticService.Subtract(numbers);
+
+            if(!response.Success)
+                return BadRequest(response.Error);
+            else
+                return Ok(response);
         }
 
         [HttpGet]
         [Route("Multiply")]
-        public ActionResult<ArithmeticResponseDto> Multiply([FromQuery] double[] numbers)
+        public ActionResult<ServiceResponse<ArithmeticResponseDto>> Multiply([FromQuery] double[] numbers)
         {
-            ArithmeticResponseDto response = this.arithmeticService.Multiply(numbers);
-            return Ok(response);
+            ServiceResponse<ArithmeticResponseDto> response = this.arithmeticService.Multiply(numbers);
+
+            if(!response.Success)
+                return BadRequest(response.Error);
+            else
+                return Ok(response);
         }
 
         [HttpGet]
         [Route("Divide")]
-        public ActionResult<ArithmeticResponseDto> Divide([FromQuery] double[] numbers)
+        public ActionResult<ServiceResponse<ArithmeticResponseDto>> Divide([FromQuery] double[] numbers)
         {
-            ArithmeticResponseDto response = this.arithmeticService.Divide(numbers);
-            return Ok(response);
+            ServiceResponse<ArithmeticResponseDto> response = this.arithmeticService.Divide(numbers);
+
+            if(!response.Success)
+                return BadRequest(response.Error);
+            else
+                return Ok(response);
         }
 
         [HttpGet]
         [Route("Power")]
-        public ActionResult<ArithmeticResponseDto> Power(double baseNumber, double exponent)
+        public ActionResult<ServiceResponse<ArithmeticResponseDto>> Power(double baseNumber, double exponent)
         {
-            ArithmeticResponseDto response = this.arithmeticService.Power(baseNumber, exponent);
-            return Ok(response);
+            ServiceResponse<ArithmeticResponseDto> response = this.arithmeticService.Power(baseNumber, exponent);
+            
+            if(!response.Success)
+                return BadRequest(response.Error);
+            else
+                return Ok(response);
         }
 
         [HttpGet]
         [Route("SquareRoot")]
-        public ActionResult<ArithmeticResponseDto> SquareRoot(double baseNumber)
+        public ActionResult<ServiceResponse<ArithmeticResponseDto>> SquareRoot(double baseNumber)
         {
-            ArithmeticResponseDto response = this.arithmeticService.Power(baseNumber, 0.5);
+            ServiceResponse<ArithmeticResponseDto> response = this.arithmeticService.Power(baseNumber, 0.5);
             return Ok(response);
         }
 
         [HttpGet]
         [Route("Square")]
-        public ActionResult<ArithmeticResponseDto> Square(double baseNumber)
+        public ActionResult<ServiceResponse<ArithmeticResponseDto>> Square(double baseNumber)
         {
-            ArithmeticResponseDto response = this.arithmeticService.Power(baseNumber, 2);
-            return Ok(response);
+            ServiceResponse<ArithmeticResponseDto> response = this.arithmeticService.Power(baseNumber, 2);
+            
+            if(!response.Success)
+                return BadRequest(response.Error);
+            else
+                return Ok(response);
         }
 
         [HttpGet]
         [Route("LogBase10")]
-        public ActionResult<ArithmeticResponseDto> LogBase10(double number)
+        public ActionResult<ServiceResponse<ArithmeticResponseDto>> LogBase10(double number)
         {
-            ArithmeticResponseDto response = this.arithmeticService.LogBase10(number);
+            ServiceResponse<ArithmeticResponseDto> response = this.arithmeticService.LogBase10(number);
 
-            if(response.Success)
-                return Ok(response);
+            if(!response.Success)
+                return BadRequest(response.Error);
             else
-                return BadRequest(response.ErrorMessage);
+                return Ok(response);
         }
     }
 }

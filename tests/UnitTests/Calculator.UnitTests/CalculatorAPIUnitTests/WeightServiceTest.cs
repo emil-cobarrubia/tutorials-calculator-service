@@ -13,10 +13,10 @@ public class WeightServiceTest
         double expected = 0.1666;
         
         //Act
-        WeightResponseDto response = testCase.GetWeightOnMoon(1, null);
+        ServiceResponse<WeightResponseDto> response = testCase.GetWeightOnMoon(1, null);
 
         //Assert
-        Assert.Equal(Math.Round(expected, 2), Math.Round(response.Weight, 2));
+        Assert.Equal(Math.Round(expected, 2), Math.Round(response.Data.Weight, 2));
     }
 
     [Fact]
@@ -27,9 +27,24 @@ public class WeightServiceTest
         double expected = 0.3773;
 
         //Act
-        WeightResponseDto response = testCase.GetWeightOnMercury(1, null);
+        ServiceResponse<WeightResponseDto> response = testCase.GetWeightOnMercury(1, null);
         
         //Assert
-        Assert.Equal(Math.Round(expected, 2), Math.Round(response.Weight, 2));
+        Assert.Equal(Math.Round(expected, 2), Math.Round(response.Data.Weight, 2));
+    }
+
+    [Fact]
+    public void Weight_Negative_Error()
+    {
+        //Arrange
+        WeightService testCase = new WeightService();
+        bool expected = false;
+        
+        //Act
+        ServiceResponse<WeightResponseDto> response = testCase.GetWeightOnMoon(-1, null);
+
+        //Assert
+        Console.WriteLine("Unit Testing Error Response: " + response.Error.ErrorMessage);
+        Assert.Equal(expected, response.Success);
     }
 }

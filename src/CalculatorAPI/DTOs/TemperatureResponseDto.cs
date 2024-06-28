@@ -1,9 +1,7 @@
-﻿namespace Calculator.DTOs
+﻿namespace Calculator.DTOs;
+public class TemperatureResponseDto
 {
-    public class TemperatureResponseDto
-    {
-        public double Fahrenheit { get; set; }
+    public double Fahrenheit { get; set; }
 
-        public double Celsius { get; set; }
-    }
+    public double Celsius { get; set; }
 }
