@@ -9,9 +9,22 @@ namespace Calculator.Services
 {
     public class ArithmeticService : IArithmeticService
     {
-        public ArithmeticResponseDto Add(double[] numbers)
+        public ServiceResponse<ArithmeticResponseDto> Add(double[] numbers)
         {
-            ArithmeticResponseDto response = new ArithmeticResponseDto
+            ServiceResponse<ArithmeticResponseDto> response = new ServiceResponse<ArithmeticResponseDto>();
+
+            //Check if array is empty
+            if(numbers.Length == 0)
+            {
+                response.Error = new ErrorResponseDto
+                {
+                    ErrorMessage = "Array cannot be empty."
+                };
+
+                return response;
+            }
+
+            response.Data = new ArithmeticResponseDto
             {
                 Input = string.Join(", ", numbers),
                 Result = numbers.Sum()
@@ -20,8 +33,21 @@ namespace Calculator.Services
             return response;
         }
 
-        public ArithmeticResponseDto Subtract(double[] numbers)
+        public ServiceResponse<ArithmeticResponseDto> Subtract(double[] numbers)
         {
+            ServiceResponse<ArithmeticResponseDto> response = new ServiceResponse<ArithmeticResponseDto>();
+
+            //Check if array is empty
+            if(numbers.Length == 0)
+            {
+                response.Error = new ErrorResponseDto
+                {
+                    ErrorMessage = "Array cannot be empty."
+                };
+
+                return response;
+            }
+
             double difference = 0;
             for(int i = 0; i < numbers.Length; i++)
             {
@@ -31,7 +57,7 @@ namespace Calculator.Services
                     difference = difference - (numbers[i]);
             }
 
-            ArithmeticResponseDto response = new ArithmeticResponseDto
+            response.Data = new ArithmeticResponseDto
             {
                 Input = string.Join(", ", numbers),
                 Result = difference
@@ -40,8 +66,21 @@ namespace Calculator.Services
             return response;
         }
 
-        public ArithmeticResponseDto Multiply(double[] numbers)
+        public ServiceResponse<ArithmeticResponseDto> Multiply(double[] numbers)
         {
+            ServiceResponse<ArithmeticResponseDto> response = new ServiceResponse<ArithmeticResponseDto>();
+
+            //Check if array is empty
+            if(numbers.Length == 0)
+            {
+                response.Error = new ErrorResponseDto
+                {
+                    ErrorMessage = "Array cannot be empty."
+                };
+
+                return response;
+            }
+
             double product = 0;
             for(int i = 0; i < numbers.Length; i++)
             {
@@ -51,7 +90,7 @@ namespace Calculator.Services
                     product = product * numbers[i];
             }
 
-            ArithmeticResponseDto response = new ArithmeticResponseDto
+            response.Data = new ArithmeticResponseDto
             {
                 Input = string.Join(", ", numbers),
                 Result = product
@@ -60,18 +99,35 @@ namespace Calculator.Services
             return response;
         }
 
-        public ArithmeticResponseDto Divide(double[] numbers)
+        public ServiceResponse<ArithmeticResponseDto> Divide(double[] numbers)
         {
-            ArithmeticResponseDto response = new ArithmeticResponseDto();
-            response.Input = string.Join(", ", numbers);
+            ServiceResponse<ArithmeticResponseDto> response = new ServiceResponse<ArithmeticResponseDto>();
 
-            double quotient = 0;
+            //Check if array is empty
+            if(numbers.Length == 0)
+            {
+                response.Error = new ErrorResponseDto
+                {
+                    ErrorMessage = "Array cannot be empty."
+                };
+
+                return response;
+            }
 
             //Check if 0 in array, as we cannot divide by zero.
             bool existsZero = Array.Exists(numbers, element => element == 0);
             if (existsZero)
-                return response;
+            {
+                response.Error = new ErrorResponseDto
+                {
+                    ErrorMessage = "Cannot divide by zero."
+                };
 
+                return response;
+            }
+
+            //Perform Multiplication
+            double quotient = 0;
             for (int i = 0; i < numbers.Length; i++)
             {
                 if (i == 0)
@@ -80,37 +136,49 @@ namespace Calculator.Services
                     quotient = (double)quotient / numbers[i];
             }
 
-            response.Result = quotient;
-
-            return response;
-        }
-
-        public ArithmeticResponseDto Power(double baseNumber, double exponent)
-        {
-            ArithmeticResponseDto response = new ArithmeticResponseDto();
-
-            response.Input = "Base: " + baseNumber.ToString() + " Exponent: " + exponent.ToString();
-            response.Result = Math.Pow((double)baseNumber, (double)exponent);
-
-            return response;
-        }
-
-        public ArithmeticResponseDto LogBase10(double number)
-        {
-            ArithmeticResponseDto response = new ArithmeticResponseDto
+            //Pack results dto into service response dto.
+            response.Data = new ArithmeticResponseDto
             {
-                Success = true
+                Input = string.Join(", ", numbers),
+                Result = quotient
             };
+
+            return response;
+        }
+
+        public ServiceResponse<ArithmeticResponseDto> Power(double baseNumber, double exponent)
+        {
+            ServiceResponse<ArithmeticResponseDto> response = new ServiceResponse<ArithmeticResponseDto>
+            {
+                Data = new ArithmeticResponseDto
+                {
+                    Input = "Base: " + baseNumber.ToString() + " Exponent: " + exponent.ToString(),
+                    Result = Math.Pow((double)baseNumber, (double)exponent)
+                }
+            };
+
+            return response;
+        }
+
+        public ServiceResponse<ArithmeticResponseDto> LogBase10(double number)
+        {
+            ServiceResponse<ArithmeticResponseDto> response = new ServiceResponse<ArithmeticResponseDto>();
 
             if(number < 0)
             {
-                response.Success = false;
-                response.ErrorMessage = "Cannot take the logarithm of a negative number.";
+                response.Error = new ErrorResponseDto
+                {
+                    ErrorMessage = "Cannot take the logarithm of a negative number."
+                };
+
                 return response;
             }
 
-            response.Input = number.ToString();
-            response.Result = Math.Log10(number);
+            response.Data = new ArithmeticResponseDto
+            {
+                Input = number.ToString(),
+                Result = Math.Log10(number)
+            };
 
             return response;
         }

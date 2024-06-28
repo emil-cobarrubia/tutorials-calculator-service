@@ -19,10 +19,10 @@ namespace CalculatorAPIUnitTests
             int expected = 100;
 
             //Act
-            AgeResponseDto response = testCase.GetAge(1900, 1, 1, 2000, 1, 1);
+            ServiceResponse<AgeResponseDto> response = testCase.GetAge(1900, 1, 1, 2000, 1, 1);
 
             //Assert
-            Assert.Equal(expected, response.Age.Years);
+            Assert.Equal(expected, response.Data.Age.Years);
         }
 
         [Fact]
@@ -33,7 +33,7 @@ namespace CalculatorAPIUnitTests
             bool expected = false;
 
             //Act
-            AgeResponseDto response = testCase.GetAge(1900, 1, 1, 1800, 1, 1);
+            ServiceResponse<AgeResponseDto> response = testCase.GetAge(1900, 1, 1, 1800, 1, 1);
 
             //Assert
             Assert.Equal(expected, response.Success);

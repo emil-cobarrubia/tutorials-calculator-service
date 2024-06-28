@@ -19,25 +19,30 @@ namespace Calculator.Controllers
 
         [HttpGet]
         [Route("GetAge")]
-        public ActionResult<AgeResponseDto> GetAge(int birthYear, int birthMonth, int birthDay)
+        public ActionResult<ServiceResponse<AgeResponseDto>> GetAge(int birthYear, int birthMonth, int birthDay)
         {
-            AgeResponseDto response = this.ageService.GetAge(birthYear, birthMonth, birthDay, null, null, null);
+            ServiceResponse<AgeResponseDto> response = this.ageService.GetAge(birthYear, birthMonth, birthDay, null, null, null);
 
-            return Ok(response);
+            if(!response.Success)
+                return BadRequest(response.Error);
+            else
+                return Ok(response);
         }
 
         [HttpGet]
         [Route("GetAgeOnDate")]
-        public ActionResult<AgeResponseDto> GetAgeOnDate(int birthYear, int birthMonth, int birthDay,
+        public ActionResult<ServiceResponse<AgeResponseDto>> GetAgeOnDate(int birthYear, int birthMonth, int birthDay,
             int onYear, int onMonth, int onDay)
         {
-            AgeResponseDto response = this.ageService.GetAge(birthYear, birthMonth, birthDay,
+
+
+            ServiceResponse<AgeResponseDto> response = this.ageService.GetAge(birthYear, birthMonth, birthDay,
                 onYear, onMonth, onDay);
 
-            if (response.Success)
-                return Ok(response);
+            if (!response.Success)
+                return BadRequest(response.Error);
             else
-                return BadRequest(response.ErrorMessage);
+                return Ok(response);
         }
     }
 

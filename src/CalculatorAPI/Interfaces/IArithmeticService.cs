@@ -4,11 +4,11 @@ namespace Calculator.Interfaces
 {
     public interface IArithmeticService
     {
-        ArithmeticResponseDto Add(double[] numbers);
-        ArithmeticResponseDto Subtract(double[] numbers);
-        ArithmeticResponseDto Multiply(double[] numbers);
-        ArithmeticResponseDto Divide(double[] numbers);
-        ArithmeticResponseDto LogBase10(double number);
-        ArithmeticResponseDto Power(double baseNumber, double exponent);
+        ServiceResponse<ArithmeticResponseDto> Add(double[] numbers);
+        ServiceResponse<ArithmeticResponseDto> Subtract(double[] numbers);
+        ServiceResponse<ArithmeticResponseDto> Multiply(double[] numbers);
+        ServiceResponse<ArithmeticResponseDto> Divide(double[] numbers);
+        ServiceResponse<ArithmeticResponseDto> LogBase10(double number);
+        ServiceResponse<ArithmeticResponseDto> Power(double baseNumber, double exponent);
     }
 }

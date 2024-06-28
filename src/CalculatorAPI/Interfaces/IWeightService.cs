@@ -4,14 +4,14 @@ namespace Calculator.Interfaces
 {
     public interface IWeightService
     {
-        WeightResponseDto GetWeightOnMoon(double weight, string? unit);
-        WeightResponseDto GetWeightOnMercury(double weight, string? unit);
-        WeightResponseDto GetWeightOnVenus(double weight, string? unit);
-        WeightResponseDto GetWeightOnMars(double weight, string? unit);
-        WeightResponseDto GetWeightOnJupiter(double weight, string? unit);
-        WeightResponseDto GetWeightOnSaturn(double weight, string? unit);
-        WeightResponseDto GetWeightOnUranus(double weight, string? unit);
-        WeightResponseDto GetWeightOnNeptune(double weight, string? unit);
-        WeightResponseDto GetWeightOnPluto(double weight, string? unit);
+        ServiceResponse<WeightResponseDto> GetWeightOnMoon(double weight, string? unit);
+        ServiceResponse<WeightResponseDto> GetWeightOnMercury(double weight, string? unit);
+        ServiceResponse<WeightResponseDto> GetWeightOnVenus(double weight, string? unit);
+        ServiceResponse<WeightResponseDto> GetWeightOnMars(double weight, string? unit);
+        ServiceResponse<WeightResponseDto> GetWeightOnJupiter(double weight, string? unit);
+        ServiceResponse<WeightResponseDto> GetWeightOnSaturn(double weight, string? unit);
+        ServiceResponse<WeightResponseDto> GetWeightOnUranus(double weight, string? unit);
+        ServiceResponse<WeightResponseDto> GetWeightOnNeptune(double weight, string? unit);
+        ServiceResponse<WeightResponseDto> GetWeightOnPluto(double weight, string? unit);
     }
 }

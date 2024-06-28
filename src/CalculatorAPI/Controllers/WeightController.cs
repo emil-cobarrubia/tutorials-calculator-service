@@ -24,74 +24,109 @@ namespace Calculator.Controllers
 
         [HttpGet]
         [Route("GetWeightOnMoon")]
-        public ActionResult<WeightResponseDto> GetWeightOnMoon(double weight)
+        public ActionResult<ServiceResponse<WeightResponseDto>> GetWeightOnMoon(double weight)
         {
-            WeightResponseDto response = this.weightService.GetWeightOnMoon(weight, null);
-            return Ok(response);
+            ServiceResponse<WeightResponseDto> response = this.weightService.GetWeightOnMoon(weight, null);
+            if(!response.Success)
+                return BadRequest(response.Error);
+            else
+                return Ok(response);
         }
 
         [HttpGet]
         [Route("GetWeightOnMercury")]
-        public ActionResult<WeightResponseDto> GetWeightOnMercury(double weight)
+        public ActionResult<ServiceResponse<WeightResponseDto>> GetWeightOnMercury(double weight)
         {
-            WeightResponseDto response = this.weightService.GetWeightOnMercury(weight, null);
-            return Ok(response);
+            ServiceResponse<WeightResponseDto> response = this.weightService.GetWeightOnMercury(weight, null);
+
+            if(!response.Success)
+                return BadRequest(response);
+            else
+                return Ok(response);
         }
 
         [HttpGet]
         [Route("GetWeightOnVenus")]
-        public ActionResult<WeightResponseDto> GetWeightOnVenus(double weight)
+        public ActionResult<ServiceResponse<WeightResponseDto>> GetWeightOnVenus(double weight)
         {
-            WeightResponseDto response = this.weightService.GetWeightOnVenus(weight, null);
-            return Ok(response);
+            ServiceResponse<WeightResponseDto> response = this.weightService.GetWeightOnVenus(weight, null);
+
+            if(!response.Success)
+                return BadRequest(response.Error);
+            else
+                return Ok(response);
         }
 
         [HttpGet]
         [Route("GetWeightOnMars")]
-        public ActionResult<WeightResponseDto> GetWeightOnMars(double weight)
+        public ActionResult<ServiceResponse<WeightResponseDto>> GetWeightOnMars(double weight)
         {
-            WeightResponseDto response = this.weightService.GetWeightOnMars(weight, null);
-            return Ok(response);
+            ServiceResponse<WeightResponseDto> response = this.weightService.GetWeightOnMars(weight, null);
+
+            if(!response.Success)
+                return BadRequest(response.Error);
+            else
+                return Ok(response);
         }
 
         [HttpGet]
         [Route("GetWeightOnJupiter")]
-        public ActionResult<WeightResponseDto> GetWeightOnJupiter(double weight)
+        public ActionResult<ServiceResponse<WeightResponseDto>> GetWeightOnJupiter(double weight)
         {
-            WeightResponseDto response = this.weightService.GetWeightOnJupiter(weight, null);
-            return Ok(response);
+            ServiceResponse<WeightResponseDto> response = this.weightService.GetWeightOnJupiter(weight, null);
+
+            if(!response.Success)
+                return BadRequest(response.Error);
+            else
+                return Ok(response);
         }
 
         [HttpGet]
         [Route("GetWeightOnSaturn")]
-        public ActionResult<WeightResponseDto> GetWeightOnSaturn(double weight)
+        public ActionResult<ServiceResponse<WeightResponseDto>> GetWeightOnSaturn(double weight)
         {
-            WeightResponseDto response = this.weightService.GetWeightOnSaturn(weight, null);
-            return Ok(response);
+            ServiceResponse<WeightResponseDto> response = this.weightService.GetWeightOnSaturn(weight, null);
+            
+            if(!response.Success)
+                return BadRequest(response.Error);
+            else
+                return Ok(response);
         }
 
         [HttpGet]
         [Route("GetWeightOnUranus")]
-        public ActionResult<WeightResponseDto> GetWeightOnUranus(double weight)
+        public ActionResult<ServiceResponse<WeightResponseDto>> GetWeightOnUranus(double weight)
         {
-            WeightResponseDto response = this.weightService.GetWeightOnUranus(weight, null);
-            return Ok(response);
+            ServiceResponse<WeightResponseDto> response = this.weightService.GetWeightOnUranus(weight, null);
+            
+            if(!response.Success)
+                return BadRequest(response.Error);
+            else
+                return Ok(response);
         }
 
         [HttpGet]
         [Route("GetWeightOnNeptune")]
-        public ActionResult<WeightResponseDto> GetWeightOnNeptune(double weight)
+        public ActionResult<ServiceResponse<WeightResponseDto>> GetWeightOnNeptune(double weight)
         {
-            WeightResponseDto response = this.weightService.GetWeightOnNeptune(weight, null);
-            return Ok(response);
+            ServiceResponse<WeightResponseDto> response = this.weightService.GetWeightOnNeptune(weight, null);
+            
+            if(!response.Success)
+                return BadRequest(response.Error);
+            else
+                return Ok(response);
         }
 
         [HttpGet]
         [Route("GetWeightOnPluto")]
-        public ActionResult<WeightResponseDto> GetWeightOnPluto(double weight)
+        public ActionResult<ServiceResponse<WeightResponseDto>> GetWeightOnPluto(double weight)
         {
-            WeightResponseDto response = this.weightService.GetWeightOnPluto(weight, null);
-            return Ok(response);
+            ServiceResponse<WeightResponseDto> response = this.weightService.GetWeightOnPluto(weight, null);
+            
+            if(!response.Success)
+                return BadRequest(response.Error);
+            else
+                return Ok(response);
         }
     }
 }
