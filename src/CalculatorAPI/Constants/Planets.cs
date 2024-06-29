@@ -2,6 +2,7 @@
 
 public class Planets
 {
+    public const string Sun = "SUN";
     public const string Mercury = "MERCURY"; 
     public const string Venus = "VENUS";
     public const string Earth = "EARTH";

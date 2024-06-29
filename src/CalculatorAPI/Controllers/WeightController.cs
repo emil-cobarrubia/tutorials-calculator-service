@@ -34,6 +34,7 @@ public class WeightController : ControllerBase
     ///     
     /// Valid Planets:
     /// 
+    ///     Sun
     ///     Mercury
     ///     Venus
     ///     Earth

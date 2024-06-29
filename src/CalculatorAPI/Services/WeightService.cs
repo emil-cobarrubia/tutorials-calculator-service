@@ -16,6 +16,10 @@ namespace Weight.Services
 
             switch(planet.ToUpper())
             {
+                case Planets.Sun:
+                    gravityConstant = SunConstants.SurfaceGravityMPerS2;
+                break;
+
                 case Planets.Mercury:
                     gravityConstant = MercuryConstants.SurfaceGravityMPerS2;
                 break;
