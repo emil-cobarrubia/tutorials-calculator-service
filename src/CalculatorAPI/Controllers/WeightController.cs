@@ -64,4 +64,47 @@ public class WeightController : ControllerBase
         else
             return Ok(response);
     }
+
+    /// <summary>
+    /// Gets the conversion multiplication factor for translating your weight on Earth
+    /// to another planet.
+    /// </summary>
+    /// <param name="planet">Planet</param>
+    /// <returns>Conversion factor for the planet selected.</returns>
+    /// <remarks>
+    /// Sample request:
+    ///
+    ///     planet: Jupiter
+    ///     
+    /// Valid Planets:
+    /// 
+    ///     Sun
+    ///     Mercury
+    ///     Venus
+    ///     Earth
+    ///     EarthMoon
+    ///     Mars
+    ///     Jupiter
+    ///     Saturn
+    ///     Uranus
+    ///     Neptune
+    ///     Pluto
+    ///     
+    /// </remarks>
+    /// <response code="200">Returns the conversion factor for a planet given a valid Earth weight.</response>
+    /// <response code="400">Returns an Error object if weight is invalid.</response>
+    [HttpGet]
+    [Route("GetWeightConversionFactorForPlanet")]
+    [Produces("text/json")]
+    [ProducesResponseType(200)]
+    [ProducesResponseType(400)]
+    public ActionResult<ServiceResponse<WeightResponseDto>> GetWeightConversionFactorForPlanet(string planet)
+    {
+        ServiceResponse<WeightResponseDto> response = this.weightService.GetWeightConversionFactorForPlanet(planet);
+
+        if(!response.Success)
+            return BadRequest(response.Error);
+        else
+            return Ok(response);
+    }
 }

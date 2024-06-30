@@ -1,4 +1,6 @@
-﻿namespace Calculator.Constants
+﻿using CalculatorAPI;
+
+namespace Calculator.Constants
 {
     public static class EarthConstants
     {

@@ -6,5 +6,7 @@ namespace Calculator.Interfaces
     public interface IWeightService
     {
         ServiceResponse<WeightResponseDto> GetWeightOnPlanet(double weight, string planet);
+
+        ServiceResponse<WeightResponseDto> GetWeightConversionFactorForPlanet(string planet);
     }
 }
