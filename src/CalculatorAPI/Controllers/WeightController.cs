@@ -1,132 +1,110 @@
 ﻿using Calculator.DTOs;
-using Calculator.Enums;
+using Calculator.Constants;
 using Calculator.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Weight.Services;
+using CalculatorAPI;
+namespace Calculator.Controllers;
 
-namespace Calculator.Controllers
+[Route("api/[controller]")]
+[ApiController]
+public class WeightController : ControllerBase
 {
-    [Route("api/[controller]")]
-    [ApiController]
+    private IWeightService weightService;
+    public WeightController()
+    {
+        this.weightService = new WeightService();
+    }
 
     /// <summary>
-    /// This controller can be used to calculate weight conversions to different units as well
-    /// as calculate weights using different gravitational values.
+    /// Gets your equivalent weight on another planet provided your given weight on Earth.
+    /// Units aren't necessary when translating weight on other planets as it'll be a 
+    /// multiplication factor of the input.  That is, if you enter a value that's 
+    /// represenative of pounds, the result, represents the value in said unit, which is pounds.
     /// </summary>
-    public class WeightController : ControllerBase
+    /// <param name="weight">Weight on Earth</param>
+    /// <param name="planet">Planet</param>
+    /// <returns>Equivalent weight on planet selected.</returns>
+    /// <remarks>
+    /// Sample request:
+    ///
+    ///     weight: 180
+    ///     planet: Jupiter
+    ///     
+    /// Valid Planets:
+    /// 
+    ///     Sun
+    ///     Mercury
+    ///     Venus
+    ///     Earth
+    ///     EarthMoon
+    ///     Mars
+    ///     Jupiter
+    ///     Saturn
+    ///     Uranus
+    ///     Neptune
+    ///     Pluto
+    ///     
+    /// </remarks>
+    /// <response code="200">Returns the equivalent weight on a planet given a valid weight on Earth.</response>
+    /// <response code="400">Returns an Error object if array is invalid.</response>
+    [HttpGet]
+    [Route("GetWeightOnPlanet")]
+    [Produces("text/json")]
+    [ProducesResponseType(200)]
+    [ProducesResponseType(400)]
+    [ProducesErrorResponseType(typeof(ErrorResponseDto))]
+    public ActionResult<ServiceResponse<WeightResponseDto>> GetWeightOnPlanet(double weight, string planet)
     {
-        private IWeightService weightService;
-        public WeightController()
-        {
-            this.weightService = new WeightService();
-        }
+        ServiceResponse<WeightResponseDto> response = this.weightService.GetWeightOnPlanet(weight, planet);
 
-        [HttpGet]
-        [Route("GetWeightOnMoon")]
-        public ActionResult<ServiceResponse<WeightResponseDto>> GetWeightOnMoon(double weight)
-        {
-            ServiceResponse<WeightResponseDto> response = this.weightService.GetWeightOnMoon(weight, null);
-            if(!response.Success)
-                return BadRequest(response.Error);
-            else
-                return Ok(response);
-        }
+        if(!response.Success)
+            return BadRequest(response.Error);
+        else
+            return Ok(response);
+    }
 
-        [HttpGet]
-        [Route("GetWeightOnMercury")]
-        public ActionResult<ServiceResponse<WeightResponseDto>> GetWeightOnMercury(double weight)
-        {
-            ServiceResponse<WeightResponseDto> response = this.weightService.GetWeightOnMercury(weight, null);
+    /// <summary>
+    /// Gets the conversion multiplication factor for translating your weight on Earth
+    /// to another planet.
+    /// </summary>
+    /// <param name="planet">Planet</param>
+    /// <returns>Conversion factor for the planet selected.</returns>
+    /// <remarks>
+    /// Sample request:
+    ///
+    ///     planet: Jupiter
+    ///     
+    /// Valid Planets:
+    /// 
+    ///     Sun
+    ///     Mercury
+    ///     Venus
+    ///     Earth
+    ///     EarthMoon
+    ///     Mars
+    ///     Jupiter
+    ///     Saturn
+    ///     Uranus
+    ///     Neptune
+    ///     Pluto
+    ///     
+    /// </remarks>
+    /// <response code="200">Returns the conversion factor for a planet given a valid Earth weight.</response>
+    /// <response code="400">Returns an Error object if weight is invalid.</response>
+    [HttpGet]
+    [Route("GetWeightConversionFactorForPlanet")]
+    [Produces("text/json")]
+    [ProducesResponseType(200)]
+    [ProducesResponseType(400)]
+    public ActionResult<ServiceResponse<WeightResponseDto>> GetWeightConversionFactorForPlanet(string planet)
+    {
+        ServiceResponse<WeightResponseDto> response = this.weightService.GetWeightConversionFactorForPlanet(planet);
 
-            if(!response.Success)
-                return BadRequest(response);
-            else
-                return Ok(response);
-        }
-
-        [HttpGet]
-        [Route("GetWeightOnVenus")]
-        public ActionResult<ServiceResponse<WeightResponseDto>> GetWeightOnVenus(double weight)
-        {
-            ServiceResponse<WeightResponseDto> response = this.weightService.GetWeightOnVenus(weight, null);
-
-            if(!response.Success)
-                return BadRequest(response.Error);
-            else
-                return Ok(response);
-        }
-
-        [HttpGet]
-        [Route("GetWeightOnMars")]
-        public ActionResult<ServiceResponse<WeightResponseDto>> GetWeightOnMars(double weight)
-        {
-            ServiceResponse<WeightResponseDto> response = this.weightService.GetWeightOnMars(weight, null);
-
-            if(!response.Success)
-                return BadRequest(response.Error);
-            else
-                return Ok(response);
-        }
-
-        [HttpGet]
-        [Route("GetWeightOnJupiter")]
-        public ActionResult<ServiceResponse<WeightResponseDto>> GetWeightOnJupiter(double weight)
-        {
-            ServiceResponse<WeightResponseDto> response = this.weightService.GetWeightOnJupiter(weight, null);
-
-            if(!response.Success)
-                return BadRequest(response.Error);
-            else
-                return Ok(response);
-        }
-
-        [HttpGet]
-        [Route("GetWeightOnSaturn")]
-        public ActionResult<ServiceResponse<WeightResponseDto>> GetWeightOnSaturn(double weight)
-        {
-            ServiceResponse<WeightResponseDto> response = this.weightService.GetWeightOnSaturn(weight, null);
-            
-            if(!response.Success)
-                return BadRequest(response.Error);
-            else
-                return Ok(response);
-        }
-
-        [HttpGet]
-        [Route("GetWeightOnUranus")]
-        public ActionResult<ServiceResponse<WeightResponseDto>> GetWeightOnUranus(double weight)
-        {
-            ServiceResponse<WeightResponseDto> response = this.weightService.GetWeightOnUranus(weight, null);
-            
-            if(!response.Success)
-                return BadRequest(response.Error);
-            else
-                return Ok(response);
-        }
-
-        [HttpGet]
-        [Route("GetWeightOnNeptune")]
-        public ActionResult<ServiceResponse<WeightResponseDto>> GetWeightOnNeptune(double weight)
-        {
-            ServiceResponse<WeightResponseDto> response = this.weightService.GetWeightOnNeptune(weight, null);
-            
-            if(!response.Success)
-                return BadRequest(response.Error);
-            else
-                return Ok(response);
-        }
-
-        [HttpGet]
-        [Route("GetWeightOnPluto")]
-        public ActionResult<ServiceResponse<WeightResponseDto>> GetWeightOnPluto(double weight)
-        {
-            ServiceResponse<WeightResponseDto> response = this.weightService.GetWeightOnPluto(weight, null);
-            
-            if(!response.Success)
-                return BadRequest(response.Error);
-            else
-                return Ok(response);
-        }
+        if(!response.Success)
+            return BadRequest(response.Error);
+        else
+            return Ok(response);
     }
 }
